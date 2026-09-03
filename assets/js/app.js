@@ -2,15 +2,17 @@
 (function () {
   'use strict';
   var root = document.documentElement;
-  var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var motionOn = !mqReduce.matches;
-  if (!motionOn) root.classList.add('no-motion');
+  /* Η κίνηση είναι ΤΟ ΠΡΟΪΟΝ αυτής της σελίδας, οπότε παίζει από προεπιλογή ακόμη
+     κι αν το λειτουργικό έχει Reduce Motion (iOS: Ρυθμίσεις → Προσβασιμότητα →
+     Κίνηση). Όποιος τη θέλει σβηστή την κλείνει από το κουμπί «Κίνηση» και η
+     επιλογή του θυμάται στο localStorage. */
+  var motionOn = true;
 
-  var toggle = document.getElementById('motionToggle');
+  var toggles = Array.prototype.slice.call(document.querySelectorAll('.motion-toggle'));
   function setMotion(on) {
     motionOn = on;
     root.classList.toggle('no-motion', !on);
-    if (toggle) toggle.setAttribute('aria-pressed', String(on));
+    toggles.forEach(function (t) { t.setAttribute('aria-pressed', String(on)); });
     window.dispatchEvent(new CustomEvent('tf:motion', { detail: on }));
     try { localStorage.setItem('tf_motion', on ? '1' : '0'); } catch (e) {}
   }
@@ -19,9 +21,9 @@
     if (saved !== null) motionOn = saved === '1';
   } catch (e) {}
   root.classList.toggle('no-motion', !motionOn);
-  if (toggle) toggle.setAttribute('aria-pressed', String(motionOn));
+  toggles.forEach(function (t) { t.setAttribute('aria-pressed', String(motionOn)); });
   window.dispatchEvent(new CustomEvent('tf:motion', { detail: motionOn }));
-  if (toggle) toggle.addEventListener('click', function () { setMotion(!motionOn); });
+  toggles.forEach(function (t) { t.addEventListener('click', function () { setMotion(!motionOn); }); });
 
   /* ── preloader ── */
   (function () {
@@ -254,7 +256,6 @@
     var cards = Array.prototype.slice.call(sec.querySelectorAll('.deck__card'));
     var n = cards.length;
     function onScroll() {
-      if (window.innerWidth <= 700) { cards.forEach(function (c) { c.style.transform = ''; c.style.opacity = ''; }); return; }
       var r = sec.getBoundingClientRect();
       var total = sec.offsetHeight - innerHeight;
       var p = Math.max(0, Math.min(1, -r.top / Math.max(1, total)));

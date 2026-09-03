@@ -139,7 +139,7 @@ def nav(active):
     </a>
     <nav class="nav__links" aria-label="Κύρια πλοήγηση">%s</nav>
     <div class="nav__right">
-      <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="true" title="Κίνηση on/off">
+      <button class="motion-toggle" type="button" aria-pressed="true" title="Κίνηση on/off">
         <span class="motion-toggle__dot"></span><span class="motion-toggle__txt">Κίνηση</span>
       </button>
       <a class="btn btn--sm" href="/contact/" data-cursor="hover"><span>Μίλα μας</span></a>
@@ -153,6 +153,9 @@ def nav(active):
 <div class="drawer" id="drawer" hidden>
   <nav class="drawer__links" aria-label="Μενού">%s</nav>
   <a class="btn btn--solid" href="/contact/"><span>Μίλα μας</span></a>
+  <button class="motion-toggle motion-toggle--drawer" type="button" aria-pressed="true" title="Κίνηση on/off">
+    <span class="motion-toggle__dot"></span><span class="motion-toggle__txt">Κίνηση</span>
+  </button>
 </div>""" % (links, links)
 
 

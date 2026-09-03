@@ -159,7 +159,9 @@ h1,h2,h3{font-weight:800;line-height:1.02;letter-spacing:-.02em}
   background:linear-gradient(120deg,#fff,var(--copper-lt));-webkit-background-clip:text;background-clip:text;color:transparent}
 .floater__s{font-size:.76rem;color:var(--text-mut)}
 @media(max-width:1150px){.floater--2,.floater--3{display:none}.floater--1{top:auto;bottom:11%;right:5%;width:180px}}
-@media(max-width:820px){.floaters{display:none}}
+/* Στο κινητό κρατάμε ΕΝΑ πάνελ — αιωρείται και δίνει βάθος χωρίς να πνίγει το κείμενο. */
+@media(max-width:820px){.floater--1{bottom:7%;right:4%;width:160px;padding:14px 16px}
+  .floater--1 .floater__v{font-size:1.6rem}.floater--1 .floater__s{font-size:.7rem}}
 
 /* ═ TICKER ═ */
 .ticker{border-block:1px solid var(--line-2);background:var(--bg-2);overflow:hidden;padding:18px 0;
@@ -246,8 +248,9 @@ h1,h2,h3{font-weight:800;line-height:1.02;letter-spacing:-.02em}
 .deck__no{font-size:.72rem;font-weight:800;letter-spacing:.2em;color:var(--copper-lt)}
 .deck__card h3{font-size:clamp(1.5rem,3vw,2.3rem);margin:12px 0 10px}
 .deck__card p{color:var(--text-mut);max-width:56ch}
-@media(max-width:700px){.process{height:auto}.process__sticky{position:static;height:auto;padding-block:clamp(80px,12vw,120px)}
-  .deck{height:auto;display:grid;gap:14px}.deck__card{position:static;transform:none!important;opacity:1!important}}
+/* Και στο κινητό καρφιτσώνεται — απλώς πιο κοντό ταξίδι και μικρότερες κάρτες. */
+@media(max-width:700px){.process{height:280vh}.deck{height:clamp(250px,58vw,300px)}
+  .deck__card{padding:24px 22px}.deck__card p{font-size:.92rem}}
 
 /* ═ CLIENTS ═ */
 .clients{padding:clamp(60px,8vw,100px) 0;border-block:1px solid var(--line-2);background:var(--bg-2);overflow:hidden}
@@ -487,3 +490,6 @@ a.ccard__v:hover{color:var(--copper-lt)}
 .phone-field__select option,.phone-field__select optgroup{color:#1a1a1a;background:#fff}
 @media(max-width:330px){.phone-field{flex-wrap:wrap}.phone-field input[type="tel"]{flex:1 1 100%}}
 @keyframes pjIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+.motion-toggle--drawer{margin-top:20px;padding:10px 18px}
+.motion-toggle--drawer .motion-toggle__txt{display:inline}
+@media(min-width:901px){.motion-toggle--drawer{display:none}}
