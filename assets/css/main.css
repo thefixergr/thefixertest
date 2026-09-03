@@ -183,7 +183,7 @@ h1,h2,h3{font-weight:800;line-height:1.02;letter-spacing:-.02em}
 .statement__txt .sw.lit{color:var(--text)}
 
 /* ═ SERVICE CARDS 3D ═ */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;perspective:1400px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr));gap:20px;perspective:1400px}
 .card{position:relative;border-radius:var(--r);border:1px solid var(--line);overflow:hidden;
   background:linear-gradient(165deg,var(--surface-2),var(--surface) 60%);transform-style:preserve-3d;
   transition:transform .18s ease-out,border-color .5s,box-shadow .6s;will-change:transform}
@@ -224,7 +224,7 @@ h1,h2,h3{font-weight:800;line-height:1.02;letter-spacing:-.02em}
 .ring__hint{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim)}
 
 /* ═ STATS ═ */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;perspective:1200px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr));gap:16px;perspective:1200px}
 .stat{padding:34px 26px;border:1px solid var(--line);border-radius:var(--r);text-align:center;
   background:linear-gradient(170deg,var(--surface-2),var(--surface));transition:transform .18s ease-out,border-color .5s;
   transform-style:preserve-3d;will-change:transform}
@@ -344,7 +344,7 @@ html.no-motion .ticker{transform:none}
 
 /* ── κάρτες project ── */
 .work-grid{padding-top:clamp(50px,7vw,90px)}
-.pjs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;perspective:1500px}
+.pjs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:20px;perspective:1500px}
 .pj{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);
   overflow:hidden;background:linear-gradient(165deg,var(--surface-2),var(--surface) 62%);
   transform-style:preserve-3d;transition:transform .18s ease-out,border-color .5s,box-shadow .6s;will-change:transform}
@@ -399,7 +399,7 @@ html.no-motion .ticker{transform:none}
 @media(max-width:860px){.svc__in{grid-template-columns:1fr}.svc__list{grid-row:auto;grid-column:1;margin-top:18px}}
 
 /* ── πώς χρεώνουμε / κανόνες / ministats ── */
-.how__grid,.rules__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;perspective:1200px}
+.how__grid,.rules__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px;perspective:1200px}
 .how__card,.rule{padding:30px 26px;border:1px solid var(--line);border-radius:var(--r);
   background:linear-gradient(170deg,var(--surface-2),var(--surface));transform-style:preserve-3d;
   transition:transform .18s ease-out,border-color .5s;will-change:transform}
@@ -420,7 +420,7 @@ html.no-motion .ticker{transform:none}
   background:linear-gradient(130deg,#fff,var(--copper-lt));-webkit-background-clip:text;background-clip:text;color:transparent}
 .ministat span{display:block;margin-top:7px;font-size:.76rem;color:var(--text-mut)}
 @media(max-width:860px){.story__grid{grid-template-columns:1fr}}
-.team__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;perspective:1200px}
+.team__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:16px;perspective:1200px}
 .member{margin:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);
   transform-style:preserve-3d;transition:transform .18s ease-out,border-color .5s}
 .member:hover{border-color:rgba(163,115,77,.4)}
