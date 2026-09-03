@@ -16,8 +16,11 @@
   }
   try {
     var saved = localStorage.getItem('tf_motion');
-    if (saved !== null) setMotion(saved === '1'); else if (toggle) toggle.setAttribute('aria-pressed', String(motionOn));
+    if (saved !== null) motionOn = saved === '1';
   } catch (e) {}
+  root.classList.toggle('no-motion', !motionOn);
+  if (toggle) toggle.setAttribute('aria-pressed', String(motionOn));
+  window.dispatchEvent(new CustomEvent('tf:motion', { detail: motionOn }));
   if (toggle) toggle.addEventListener('click', function () { setMotion(!motionOn); });
 
   /* ── preloader ── */

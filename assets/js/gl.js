@@ -157,9 +157,10 @@
     }
     gl.uniform2f(uRes, canvas.width, canvas.height);
   }
-  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('resize', function () { resize(); if (!running) draw(lastT); }, { passive: true });
 
-  var mx = 0, my = 0, tmx = 0, tmy = 0, scroll = 0, visible = true, running = true, start = performance.now();
+  var mx = 0, my = 0, tmx = 0, tmy = 0, scroll = 0, visible = true, running = true,
+      start = performance.now(), lastT = 1.6;
 
   window.addEventListener('pointermove', function (e) {
     tmx = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -174,10 +175,12 @@
 
   window.addEventListener('tf:motion', function (e) {
     running = !!e.detail;
-    if (running) { start = performance.now() - 1000; frame(); } else { draw(0.0); }
+    if (running) { start = performance.now() - lastT * 1000; }
+    else { resize(); draw(lastT); }
   });
 
   function draw(time) {
+    lastT = time;
     gl.uniform1f(uTime, time);
     gl.uniform2f(uMouse, mx, my);
     gl.uniform1f(uScroll, scroll);
@@ -195,8 +198,7 @@
   }
 
   resize();
-  draw(0);
+  draw(lastT);
   canvas.classList.add('ready');
-  if (document.documentElement.classList.contains('no-motion')) { running = false; }
   frame();
 })();
