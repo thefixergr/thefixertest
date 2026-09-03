@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Δουλειές — the fixer LAB</title>
+<meta name="description" content="Δέκα projects που τρέχουν σήμερα: ξενοδοχεία, βίλες, εστίαση, λιανική, ιατρείο.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0a0c">
+<meta property="og:title" content="Δουλειές — the fixer LAB">
+<meta property="og:description" content="Δέκα projects που τρέχουν σήμερα: ξενοδοχεία, βίλες, εστίαση, λιανική, ιατρείο.">
+<meta property="og:type" content="website">
+<link rel="preload" href="/assets/fonts/Barlow-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/Barlow-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__logo" src="/assets/img/logo-wordmark-gold.svg" alt="" width="200" height="51">
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+    <div class="loader__num"><span id="loaderNum">0</span><em>%</em></div>
+  </div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span><span class="cursor__label"></span></div>
+
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="/" data-cursor="hover" aria-label="the fixer — αρχική">
+      <img src="/assets/img/logo-wordmark-gold.svg" alt="the fixer" class="brand__logo" width="150" height="38">
+      <em class="brand__tag">lab</em>
+    </a>
+    <nav class="nav__links" aria-label="Κύρια πλοήγηση"><a href="/work/" aria-current="page" data-cursor="hover">Δουλειές</a><a href="/services/" data-cursor="hover">Υπηρεσίες</a><a href="/about/" data-cursor="hover">Ποιοι είμαστε</a><a href="/contact/" data-cursor="hover">Επικοινωνία</a></nav>
+    <div class="nav__right">
+      <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="true" title="Κίνηση on/off">
+        <span class="motion-toggle__dot"></span><span class="motion-toggle__txt">Κίνηση</span>
+      </button>
+      <a class="btn btn--sm" href="/contact/" data-cursor="hover"><span>Μίλα μας</span></a>
+    </div>
+  </div>
+  <i class="nav__progress" id="navProgress"></i>
+  <button class="burger" id="burger" type="button" aria-label="Μενού" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+<div class="drawer" id="drawer" hidden>
+  <nav class="drawer__links" aria-label="Μενού"><a href="/work/" aria-current="page" data-cursor="hover">Δουλειές</a><a href="/services/" data-cursor="hover">Υπηρεσίες</a><a href="/about/" data-cursor="hover">Ποιοι είμαστε</a><a href="/contact/" data-cursor="hover">Επικοινωνία</a></nav>
+  <a class="btn btn--solid" href="/contact/"><span>Μίλα μας</span></a>
+</div>
+
+<main id="main">
+<span id="top"></span>
+<section class="hero hero--sm" id="hero">
+  <canvas class="hero__canvas" id="gl" aria-hidden="true"></canvas>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__in">
+    <p class="kicker reveal" data-reveal><i></i>Το χαρτοφυλάκιο</p>
+    <h1 class="hero__title hero__title--sm"><span class="line"><span class="w " data-split>Δουλειές</span> <span class="w " data-split>που</span></span><span class="line"><span class="w grad" data-split>τρέχουν</span> <span class="w grad" data-split>σήμερα.</span></span></h1>
+    <p class="hero__sub reveal" data-reveal>Δέκα projects, τα περισσότερα online αυτή τη στιγμή. Πάτα οποιοδήποτε και δες το μόνος σου — δεν βάζουμε mockups που δεν υπάρχουν πουθενά.</p>
+    
+  </div>
+</section>
+<section class="sec work-grid">
+  <div class="chips" id="chips"><button type="button" class="chip is-on" data-filter="all" data-cursor="hover">Όλα</button><button type="button" class="chip" data-filter="web" data-cursor="hover">Ιστοσελίδες</button><button type="button" class="chip" data-filter="social" data-cursor="hover">Social</button><button type="button" class="chip" data-filter="content" data-cursor="hover">Περιεχόμενο</button><button type="button" class="chip" data-filter="brand" data-cursor="hover">Branding</button></div>
+  <div class="pjs" id="pjs">
+  <article class="pj tilt" data-cats="social content">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><img src="/assets/img/work/megawatt.jpg" alt="MEGAWATT" loading="lazy" width="1280" height="800"></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>MEGAWATT</h2><span class="pj__live pj__live--off">case study</span></div>
+      <p class="pj__kind">Social Media · 14 καταστήματα</p>
+      <p class="pj__blurb">Από 16.2K σε 64.7K followers σε 12 μήνες, με 0€ διαφήμιση. 1.3M προβολές σε reels. Τα σκετσάκια της αποθήκης έκαναν ×80 τα νούμερα των παρουσιάσεων προϊόντος.</p>
+      <div class="pj__foot"><span class="pj__stat">64.7K followers</span></div>
+    </div>
+  </article>
+  <article class="pj tilt" data-cats="web">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><a class="pj__link" href="https://www.pittasstudios.com" target="_blank" rel="noopener" data-cursor="view" aria-label="Pittas Studios — δες το site"><img src="/assets/img/work/pittas-studios.jpg" alt="Pittas Studios" loading="lazy" width="1280" height="800"></a></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>Pittas Studios</h2><span class="pj__live"><i></i>online</span></div>
+      <p class="pj__kind">Ξενοδοχείο · Καρδάμαινα, Κως</p>
+      <p class="pj__blurb">Πολυσέλιδο site με απευθείας κρατήσεις, σύγκριση τιμών με τα κανάλια και δικό του blog. Το εργαστήριό μας: είναι το κατάλυμα του ιδιοκτήτη μας.</p>
+      <div class="pj__foot"><span class="pj__stat">35% direct</span><a class="pj__go" href="https://www.pittasstudios.com" target="_blank" rel="noopener" data-cursor="hover">Δες το live →</a></div>
+    </div>
+  </article>
+  <article class="pj tilt" data-cats="web">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><a class="pj__link" href="https://elealuxurysuites.com" target="_blank" rel="noopener" data-cursor="view" aria-label="Elea Luxury Suites — δες το site"><img src="/assets/img/work/elea-luxury-suites.jpg" alt="Elea Luxury Suites" loading="lazy" width="1280" height="800"></a></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>Elea Luxury Suites</h2><span class="pj__live"><i></i>online</span></div>
+      <p class="pj__kind">Suites με πισίνα · Καρδάμαινα</p>
+      <p class="pj__blurb">Direct-booking funnel με ημερομηνίες μέσα στο hero και ζωντανή σύγκριση τιμής απέναντι σε Booking και Expedia. Τρεις γλώσσες.</p>
+      <div class="pj__foot"><span class="pj__stat">EN · DE · EL</span><a class="pj__go" href="https://elealuxurysuites.com" target="_blank" rel="noopener" data-cursor="hover">Δες το live →</a></div>
+    </div>
+  </article>
+  <article class="pj tilt" data-cats="web content">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><a class="pj__link" href="https://aegeansunsetvillas.com" target="_blank" rel="noopener" data-cursor="view" aria-label="Aegean Sunset Villas — δες το site"><img src="/assets/img/work/aegean-sunset-villas.jpg" alt="Aegean Sunset Villas" loading="lazy" width="1280" height="800"></a></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>Aegean Sunset Villas</h2><span class="pj__live"><i></i>online</span></div>
+      <p class="pj__kind">3 ιδιωτικές βίλες · Μαστιχάρι</p>
+      <p class="pj__blurb">Hero με drone video του πελάτη, σελίδα ανά βίλα, 61 επεξεργασμένες φωτογραφίες. Έφυγε από Wix.</p>
+      <div class="pj__foot"><span class="pj__stat">7 σελίδες</span><a class="pj__go" href="https://aegeansunsetvillas.com" target="_blank" rel="noopener" data-cursor="hover">Δες το live →</a></div>
+    </div>
+  </article>
+  <article class="pj tilt" data-cats="web">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><a class="pj__link" href="https://onarvillaskos.com" target="_blank" rel="noopener" data-cursor="view" aria-label="ŌNAR Villas — δες το site"><img src="/assets/img/work/onar-villas.jpg" alt="ŌNAR Villas" loading="lazy" width="1280" height="800"></a></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>ŌNAR Villas</h2><span class="pj__live"><i></i>online</span></div>
+      <p class="pj__kind">Private pool villas · Καρδάμαινα</p>
+      <p class="pj__blurb">Direct-first site για βίλες με ιδιωτική πισίνα. 74 φωτογραφίες σε τρεις αναλογίες, μηδέν αναφορά σε τρίτα κανάλια.</p>
+      <div class="pj__foot"><span class="pj__stat">0% προμήθειες</span><a class="pj__go" href="https://onarvillaskos.com" target="_blank" rel="noopener" data-cursor="hover">Δες το live →</a></div>
+    </div>
+  </article>
+  <article class="pj tilt" data-cats="web brand">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><a class="pj__link" href="https://www.starlightbeachbar.com" target="_blank" rel="noopener" data-cursor="view" aria-label="Starlight — δες το site"><img src="/assets/img/work/starlight.jpg" alt="Starlight" loading="lazy" width="1280" height="800"></a></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>Starlight</h2><span class="pj__live"><i></i>online</span></div>
+      <p class="pj__kind">Beach bar & rooms · Καρδάμαινα</p>
+      <p class="pj__blurb">Δύο brands κάτω από μία στέγη, 200+ πιάτα μεταγραμμένα στο χέρι, αλλαγή domain χωρίς να σπάσει κανένα παλιό link.</p>
+      <div class="pj__foot"><span class="pj__stat">Από το 1973</span><a class="pj__go" href="https://www.starlightbeachbar.com" target="_blank" rel="noopener" data-cursor="hover">Δες το live →</a></div>
+    </div>
+  </article>
+  <article class="pj tilt" data-cats="web">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><a class="pj__link" href="https://supermarketlouis.com" target="_blank" rel="noopener" data-cursor="view" aria-label="Louis Supermarkets — δες το site"><img src="/assets/img/work/louis-supermarket.jpg" alt="Louis Supermarkets" loading="lazy" width="1280" height="800"></a></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>Louis Supermarkets</h2><span class="pj__live"><i></i>online</span></div>
+      <p class="pj__kind">Super market · Μαρίνα Κω</p>
+      <p class="pj__blurb">Παραγγελία και παράδοση στο σκάφος, χωρίς χρέωση μεταφοράς. Στημένο για κόσμο που ψάχνει provisioning από το κινητό, στη μαρίνα.</p>
+      <div class="pj__foot"><span class="pj__stat">7 μέρες ανοιχτά</span><a class="pj__go" href="https://supermarketlouis.com" target="_blank" rel="noopener" data-cursor="hover">Δες το live →</a></div>
+    </div>
+  </article>
+  <article class="pj tilt" data-cats="web">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><a class="pj__link" href="https://drkambaniskos.com" target="_blank" rel="noopener" data-cursor="view" aria-label="Dr. Ioannis Kambanis — δες το site"><img src="/assets/img/work/dr-kambanis.jpg" alt="Dr. Ioannis Kambanis" loading="lazy" width="1280" height="800"></a></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>Dr. Ioannis Kambanis</h2><span class="pj__live"><i></i>online</span></div>
+      <p class="pj__kind">Ιατρείο · Ζηπάρι, Κως</p>
+      <p class="pj__blurb">Γενική ιατρική για ντόπιους και επισκέπτες. Τρεις γλώσσες, τηλέφωνο και WhatsApp σε κάθε οθόνη, ωράριο που διαβάζεται με τη μία.</p>
+      <div class="pj__foot"><span class="pj__stat">EN · DE · IT</span><a class="pj__go" href="https://drkambaniskos.com" target="_blank" rel="noopener" data-cursor="hover">Δες το live →</a></div>
+    </div>
+  </article>
+  <article class="pj tilt" data-cats="web">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><a class="pj__link" href="https://villaelusiakos.com" target="_blank" rel="noopener" data-cursor="view" aria-label="Villa Elusia — δες το site"><img src="/assets/img/work/villa-elusia.jpg" alt="Villa Elusia" loading="lazy" width="1280" height="800"></a></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>Villa Elusia</h2><span class="pj__live"><i></i>online</span></div>
+      <p class="pj__kind">Ιδιωτική βίλα · Κως</p>
+      <p class="pj__blurb">Μονοσέλιδο που δουλεύει σαν φυλλάδιο πώλησης: φωτογραφίες, παροχές, απευθείας επικοινωνία. Χωρίς προμήθειες σε πλατφόρμες.</p>
+      <div class="pj__foot"><span class="pj__stat">Direct only</span><a class="pj__go" href="https://villaelusiakos.com" target="_blank" rel="noopener" data-cursor="hover">Δες το live →</a></div>
+    </div>
+  </article>
+  <article class="pj tilt" data-cats="web">
+    <div class="pj__glare"></div>
+    <div class="pj__shot"><img src="/assets/img/work/philippos-studios.jpg" alt="Philippos Studios" loading="lazy" width="1280" height="800"></div>
+    <div class="pj__body">
+      <div class="pj__top"><h2>Philippos Studios</h2><span class="pj__live pj__live--off">case study</span></div>
+      <p class="pj__kind">19 δωμάτια · Καρδάμαινα</p>
+      <p class="pj__blurb">Οικογενειακό συγκρότημα με 9.1 στο Booking. Site που δείχνει τα δωμάτια όπως είναι, χωρίς φίλτρα και χωρίς υποσχέσεις.</p>
+      <div class="pj__foot"><span class="pj__stat">9.1 στο Booking</span></div>
+    </div>
+  </article>
+  </div>
+  <p class="work-grid__note reveal" data-reveal>Λείπουν επίτηδες όσα δεν έχουν βγει ακόμη στον αέρα. Όταν βγουν, μπαίνουν.</p>
+</section>
+<section class="cta">
+  <div class="cta__panel tilt">
+    <div class="cta__glow" aria-hidden="true"></div>
+    <p class="kicker"><i></i>Επόμενο βήμα</p>
+    <h2>Στείλε μου το link σου.<br><span class="grad">Θα σου πω και τα άσχημα.</span></h2>
+    <p class="cta__sub">Δωρεάν πρώτη ματιά στο site, στα social ή στις διαφημίσεις σου. Χωρίς παρουσίαση 20 slides.</p>
+    <div class="cta__btns">
+      <a class="btn btn--solid magnet" href="/contact/" data-cursor="hover"><span>Φόρμα επικοινωνίας</span></a>
+      <a class="btn btn--ghost magnet" href="https://wa.me/306942428836" target="_blank" rel="noopener" data-cursor="hover"><span>WhatsApp</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <a class="foot__brand" href="/"><img src="/assets/img/logo-wordmark-silver.svg" alt="the fixer" width="132" height="34"><em>lab</em></a>
+    <p class="foot__note">Πειραματικό concept — δεν είναι το live site.
+      <a href="https://www.thefixer.gr" target="_blank" rel="noopener noreferrer" data-cursor="hover">thefixer.gr</a></p>
+    <span class="foot__meta">Κως · Ελλάδα · <a href="mailto:info@thefixer.gr" data-cursor="hover">info@thefixer.gr</a></span>
+  </div>
+</footer>
+
+<script src="/assets/js/gl.js" defer></script>
+<script src="/assets/js/app.js" defer></script>
+
+</body>
+</html>

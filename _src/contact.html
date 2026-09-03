@@ -1,0 +1,78 @@
+<section class="hero hero--sm" id="hero">
+  <canvas class="hero__canvas" id="gl" aria-hidden="true"></canvas>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__in">
+    <p class="kicker reveal" data-reveal><i></i>Επικοινωνία</p>
+    <h1 class="hero__title hero__title--sm">
+      <span class="line"><span class="w" data-split>Πες</span> <span class="w" data-split>μας</span> <span class="w" data-split>τι</span> <span class="w" data-split>θέλεις.</span></span>
+      <span class="line"><span class="w grad" data-split>Απαντάμε</span> <span class="w grad" data-split>αυθημερόν.</span></span>
+    </h1>
+    <p class="hero__sub reveal" data-reveal>Δεν χρειάζεται να ξέρεις τι ακριβώς χρειάζεσαι. Πες μας τι σε ενοχλεί και το ξεδιαλύνουμε μαζί.</p>
+  </div>
+</section>
+
+<section class="sec contact">
+  <div class="contact__grid">
+    <div class="contact__form-wrap tilt">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <form class="form" name="lab-contact" method="POST" data-netlify="true" netlify-honeypot="website" action="/contact/?sent=1">
+        <input type="hidden" name="form-name" value="lab-contact">
+        <p class="hp"><label>Μην το συμπληρώσεις <input name="website" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="field">
+          <label for="name">Όνομα</label>
+          <input id="name" name="name" type="text" required autocomplete="name" placeholder="Πώς σε λένε;">
+        </div>
+        <div class="field">
+          <label for="biz">Επιχείρηση</label>
+          <input id="biz" name="business" type="text" autocomplete="organization" placeholder="Και τι κάνει;">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="phone">Τηλέφωνο</label>
+          <div class="phone-field" data-phone-field data-default="GR" data-frequent="GB,DE,NL,IT,FR">
+            <input type="tel" id="phone" autocomplete="tel-national" inputmode="tel" placeholder="694 000 0000">
+            <input type="hidden" name="phone">
+          </div>
+        </div>
+        <div class="field field--full">
+          <label for="link">Link (site, Instagram, ό,τι έχεις)</label>
+          <input id="link" name="link" type="url" placeholder="https://">
+        </div>
+        <div class="field field--full">
+          <label for="msg">Τι σε απασχολεί;</label>
+          <textarea id="msg" name="message" rows="5" required placeholder="Λίγες γραμμές φτάνουν."></textarea>
+        </div>
+        <label class="form-consent field--full"><input type="checkbox" name="consent" required> Συμφωνώ να επικοινωνήσετε μαζί μου για αυτό το αίτημα.</label>
+        <div class="field--full">
+          <button class="btn btn--solid magnet" type="submit"><span>Στείλε το</span></button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="contact__side">
+      <div class="ccard tilt">
+        <span class="ccard__k">Γρήγορα</span>
+        <a class="ccard__v" href="https://wa.me/306942428836" target="_blank" rel="noopener" data-cursor="hover">WhatsApp →</a>
+        <p>+30 694 242 8836. Συνήθως απαντάμε μέσα σε λίγες ώρες.</p>
+      </div>
+      <div class="ccard tilt">
+        <span class="ccard__k">Email</span>
+        <a class="ccard__v" href="mailto:info@thefixer.gr" data-cursor="hover">info@thefixer.gr</a>
+        <p>Στείλε ό,τι έχεις: link, φωτογραφίες, τιμοκατάλογο.</p>
+      </div>
+      <div class="ccard tilt">
+        <span class="ccard__k">Πού είμαστε</span>
+        <span class="ccard__v">Κως, 85302</span>
+        <p>Δουλεύουμε με πελάτες σε Αθήνα, Κρήτη, Θεσσαλονίκη και Κύπρο.</p>
+      </div>
+      <div class="ccard ccard--note">
+        <p><b>Σημείωση:</b> αυτή είναι πειραματική σελίδα. Η φόρμα στέλνει μέσω Netlify Forms — για την κανονική επικοινωνία δες το <a href="https://www.thefixer.gr/contact" target="_blank" rel="noopener">thefixer.gr</a>.</p>
+      </div>
+    </aside>
+  </div>
+</section>

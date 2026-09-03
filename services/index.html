@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Υπηρεσίες — the fixer LAB</title>
+<meta name="description" content="Social media, performance ads, ιστοσελίδες, περιεχόμενο, branding, AI.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0a0c">
+<meta property="og:title" content="Υπηρεσίες — the fixer LAB">
+<meta property="og:description" content="Social media, performance ads, ιστοσελίδες, περιεχόμενο, branding, AI.">
+<meta property="og:type" content="website">
+<link rel="preload" href="/assets/fonts/Barlow-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/Barlow-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__logo" src="/assets/img/logo-wordmark-gold.svg" alt="" width="200" height="51">
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+    <div class="loader__num"><span id="loaderNum">0</span><em>%</em></div>
+  </div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span><span class="cursor__label"></span></div>
+
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="/" data-cursor="hover" aria-label="the fixer — αρχική">
+      <img src="/assets/img/logo-wordmark-gold.svg" alt="the fixer" class="brand__logo" width="150" height="38">
+      <em class="brand__tag">lab</em>
+    </a>
+    <nav class="nav__links" aria-label="Κύρια πλοήγηση"><a href="/work/" data-cursor="hover">Δουλειές</a><a href="/services/" aria-current="page" data-cursor="hover">Υπηρεσίες</a><a href="/about/" data-cursor="hover">Ποιοι είμαστε</a><a href="/contact/" data-cursor="hover">Επικοινωνία</a></nav>
+    <div class="nav__right">
+      <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="true" title="Κίνηση on/off">
+        <span class="motion-toggle__dot"></span><span class="motion-toggle__txt">Κίνηση</span>
+      </button>
+      <a class="btn btn--sm" href="/contact/" data-cursor="hover"><span>Μίλα μας</span></a>
+    </div>
+  </div>
+  <i class="nav__progress" id="navProgress"></i>
+  <button class="burger" id="burger" type="button" aria-label="Μενού" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+<div class="drawer" id="drawer" hidden>
+  <nav class="drawer__links" aria-label="Μενού"><a href="/work/" data-cursor="hover">Δουλειές</a><a href="/services/" aria-current="page" data-cursor="hover">Υπηρεσίες</a><a href="/about/" data-cursor="hover">Ποιοι είμαστε</a><a href="/contact/" data-cursor="hover">Επικοινωνία</a></nav>
+  <a class="btn btn--solid" href="/contact/"><span>Μίλα μας</span></a>
+</div>
+
+<main id="main">
+<span id="top"></span>
+<section class="hero hero--sm" id="hero">
+  <canvas class="hero__canvas" id="gl" aria-hidden="true"></canvas>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__in">
+    <p class="kicker reveal" data-reveal><i></i>Τι κάνουμε</p>
+    <h1 class="hero__title hero__title--sm"><span class="line"><span class="w " data-split>Έξι</span> <span class="w " data-split>υπηρεσίες.</span></span><span class="line"><span class="w grad" data-split>Ένας</span> <span class="w grad" data-split>συνεργάτης.</span></span></h1>
+    <p class="hero__sub reveal" data-reveal>Δεν χρειάζεται να τα πάρεις όλα. Χρειάζεται να ξέρεις τι σου λείπει — και αυτό το βρίσκουμε μαζί, δωρεάν.</p>
+    
+  </div>
+</section>
+<section class="sec svcs">
+  <article class="svc tilt">
+    <div class="svc__glare"></div>
+    <div class="svc__in">
+      <span class="svc__no">01</span>
+      <h2>Social Media</h2>
+      <p class="svc__lead">Στρατηγική, παραγωγή, community management.</p>
+      <p class="svc__body">Δεν ποστάρουμε για να ποστάρουμε. Ξεκινάμε από το τι πουλάει και χτίζουμε γύρω από αυτό: σενάρια, γύρισμα, μοντάζ, πρόγραμμα, απαντήσεις σε μηνύματα. Τα reels που δουλεύουν σπάνια είναι αυτά που περιμένεις.</p>
+      <ul class="svc__list"><li>Πλάνο περιεχομένου ανά μήνα</li><li>Γύρισμα και μοντάζ επιτόπου</li><li>Reels, carousels, stories</li><li>Απαντήσεις σε σχόλια και μηνύματα</li><li>Αναφορά με νούμερα κάθε μήνα</li></ul>
+    </div>
+  </article>
+  <article class="svc tilt">
+    <div class="svc__glare"></div>
+    <div class="svc__in">
+      <span class="svc__no">02</span>
+      <h2>Performance Ads</h2>
+      <p class="svc__lead">Google και Meta, με tracking που στέκει.</p>
+      <p class="svc__body">Πρώτα στήνουμε τη μέτρηση, μετά ξοδεύουμε. Χωρίς σωστό tracking κάθε νούμερο είναι μυθιστόρημα. Αν το budget δεν βγάζει, θα το ακούσεις από εμάς πριν το δεις στον λογαριασμό σου.</p>
+      <ul class="svc__list"><li>Search, Performance Max, Demand Gen</li><li>Meta: awareness έως conversions</li><li>GA4, GTM, conversion API</li><li>A/B σε creative και κοινά</li><li>Μηνιαίο ξεκαθάρισμα σε ό,τι δεν αποδίδει</li></ul>
+    </div>
+  </article>
+  <article class="svc tilt">
+    <div class="svc__glare"></div>
+    <div class="svc__in">
+      <span class="svc__no">03</span>
+      <h2>Web Design &amp; Development</h2>
+      <p class="svc__lead">Custom κώδικας. Όχι template, όχι WordPress.</p>
+      <p class="svc__body">Στατικά sites που φορτώνουν αμέσως, δεν έχουν plugin να σπάσει και δεν χρειάζονται συντήρηση κάθε μήνα για να μείνουν ασφαλή. Ο κώδικας και το περιεχόμενο είναι δικά σου από την πρώτη μέρα.</p>
+      <ul class="svc__list"><li>Πολυσέλιδα sites και landing pages</li><li>Πολυγλωσσικά με hreflang</li><li>Απευθείας κρατήσεις χωρίς προμήθειες</li><li>Τεχνικό SEO και schema</li><li>Ταχύτητα που περνάει τα Core Web Vitals</li></ul>
+    </div>
+  </article>
+  <article class="svc tilt">
+    <div class="svc__glare"></div>
+    <div class="svc__in">
+      <span class="svc__no">04</span>
+      <h2>Content Production</h2>
+      <p class="svc__lead">Φωτογράφιση, video, drone.</p>
+      <p class="svc__body">Το υλικό είναι το καύσιμο. Χωρίς αυτό, ούτε site ούτε διαφήμιση τρέχει. Ερχόμαστε, γυρίζουμε, παραδίδουμε έτοιμα για κάθε format — από 9:16 story μέχρι hero video πλάτους οθόνης.</p>
+      <ul class="svc__list"><li>Φωτογράφιση χώρων και προϊόντων</li><li>Video και reels</li><li>Drone</li><li>Επεξεργασία και export ανά κανάλι</li><li>Δικαιώματα χρήσης χωρίς αστερίσκους</li></ul>
+    </div>
+  </article>
+  <article class="svc tilt">
+    <div class="svc__glare"></div>
+    <div class="svc__in">
+      <span class="svc__no">05</span>
+      <h2>Branding</h2>
+      <p class="svc__lead">Λογότυπο, tone of voice, brand book.</p>
+      <p class="svc__body">Να ξέρει ο κόσμος ποιος είσαι πριν προλάβεις να μιλήσεις. Και να ξέρει ο επόμενος συνεργάτης σου τι επιτρέπεται, χωρίς να ρωτάει.</p>
+      <ul class="svc__list"><li>Λογότυπο και παραλλαγές</li><li>Χρώματα και τυπογραφία</li><li>Brand book με κανόνες χρήσης</li><li>Εφαρμογές σε έντυπο και ψηφιακό</li><li>Tone of voice</li></ul>
+    </div>
+  </article>
+  <article class="svc tilt">
+    <div class="svc__glare"></div>
+    <div class="svc__in">
+      <span class="svc__no">06</span>
+      <h2>AI Solutions</h2>
+      <p class="svc__lead">Αυτοματισμοί και ορατότητα σε AI μηχανές.</p>
+      <p class="svc__body">Ό,τι διαβάζει η Google το διαβάζει και το ChatGPT. Καθαρή δομή, σωστά δεδομένα, περιεχόμενο που απαντάει σε ερωτήσεις. Και εργαλεία που γλιτώνουν ώρες από τη διαχείριση.</p>
+      <ul class="svc__list"><li>Δομημένα δεδομένα και llms.txt</li><li>Περιεχόμενο που απαντάει σε ερωτήσεις</li><li>Αυτοματισμοί σε κρατήσεις και ερωτήματα</li><li>Εσωτερικά εργαλεία και dashboards</li><li>Τίμια μέτρηση — καμία εγγύηση για το τι θα προτείνει ένα AI</li></ul>
+    </div>
+  </article>
+</section>
+<section class="sec how">
+  <header class="sec__head">
+    <p class="kicker reveal" data-reveal><i></i>Πώς χρεώνουμε</p>
+    <h2 class="sec__title reveal" data-reveal>Χωρίς <span class="dim">ψιλά γράμματα.</span></h2>
+  </header>
+  <div class="how__grid">
+    <div class="how__card tilt"><h3>Έργο</h3><p>Site, brand, φωτογράφιση: σταθερό ποσό, γραπτό πλάνο, ημερομηνία παράδοσης. Ξέρεις από την αρχή τι πληρώνεις.</p></div>
+    <div class="how__card tilt"><h3>Μηνιαία</h3><p>Social, διαφημίσεις, συντήρηση: σταθερή συνδρομή ανά μήνα. Το budget των διαφημίσεων είναι χωριστό και πάει ολόκληρο στην πλατφόρμα.</p></div>
+    <div class="how__card tilt"><h3>Ό,τι φτιάχνουμε είναι δικό σου</h3><p>Domain, κώδικας, λογαριασμοί διαφήμισης, υλικό. Στο όνομά σου. Αν φύγεις, τα παίρνεις μαζί σου.</p></div>
+  </div>
+</section>
+<section class="cta">
+  <div class="cta__panel tilt">
+    <div class="cta__glow" aria-hidden="true"></div>
+    <p class="kicker"><i></i>Επόμενο βήμα</p>
+    <h2>Στείλε μου το link σου.<br><span class="grad">Θα σου πω και τα άσχημα.</span></h2>
+    <p class="cta__sub">Δωρεάν πρώτη ματιά στο site, στα social ή στις διαφημίσεις σου. Χωρίς παρουσίαση 20 slides.</p>
+    <div class="cta__btns">
+      <a class="btn btn--solid magnet" href="/contact/" data-cursor="hover"><span>Φόρμα επικοινωνίας</span></a>
+      <a class="btn btn--ghost magnet" href="https://wa.me/306942428836" target="_blank" rel="noopener" data-cursor="hover"><span>WhatsApp</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <a class="foot__brand" href="/"><img src="/assets/img/logo-wordmark-silver.svg" alt="the fixer" width="132" height="34"><em>lab</em></a>
+    <p class="foot__note">Πειραματικό concept — δεν είναι το live site.
+      <a href="https://www.thefixer.gr" target="_blank" rel="noopener noreferrer" data-cursor="hover">thefixer.gr</a></p>
+    <span class="foot__meta">Κως · Ελλάδα · <a href="mailto:info@thefixer.gr" data-cursor="hover">info@thefixer.gr</a></span>
+  </div>
+</footer>
+
+<script src="/assets/js/gl.js" defer></script>
+<script src="/assets/js/app.js" defer></script>
+
+</body>
+</html>

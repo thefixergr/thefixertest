@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Επικοινωνία — the fixer LAB</title>
+<meta name="description" content="Στείλε μας το link σου. Δωρεάν πρώτη ματιά, χωρίς παρουσίαση 20 slides.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0a0c">
+<meta property="og:title" content="Επικοινωνία — the fixer LAB">
+<meta property="og:description" content="Στείλε μας το link σου. Δωρεάν πρώτη ματιά, χωρίς παρουσίαση 20 slides.">
+<meta property="og:type" content="website">
+<link rel="preload" href="/assets/fonts/Barlow-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/assets/fonts/Barlow-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__logo" src="/assets/img/logo-wordmark-gold.svg" alt="" width="200" height="51">
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+    <div class="loader__num"><span id="loaderNum">0</span><em>%</em></div>
+  </div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span><span class="cursor__label"></span></div>
+
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="/" data-cursor="hover" aria-label="the fixer — αρχική">
+      <img src="/assets/img/logo-wordmark-gold.svg" alt="the fixer" class="brand__logo" width="150" height="38">
+      <em class="brand__tag">lab</em>
+    </a>
+    <nav class="nav__links" aria-label="Κύρια πλοήγηση"><a href="/work/" data-cursor="hover">Δουλειές</a><a href="/services/" data-cursor="hover">Υπηρεσίες</a><a href="/about/" data-cursor="hover">Ποιοι είμαστε</a><a href="/contact/" aria-current="page" data-cursor="hover">Επικοινωνία</a></nav>
+    <div class="nav__right">
+      <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="true" title="Κίνηση on/off">
+        <span class="motion-toggle__dot"></span><span class="motion-toggle__txt">Κίνηση</span>
+      </button>
+      <a class="btn btn--sm" href="/contact/" data-cursor="hover"><span>Μίλα μας</span></a>
+    </div>
+  </div>
+  <i class="nav__progress" id="navProgress"></i>
+  <button class="burger" id="burger" type="button" aria-label="Μενού" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+<div class="drawer" id="drawer" hidden>
+  <nav class="drawer__links" aria-label="Μενού"><a href="/work/" data-cursor="hover">Δουλειές</a><a href="/services/" data-cursor="hover">Υπηρεσίες</a><a href="/about/" data-cursor="hover">Ποιοι είμαστε</a><a href="/contact/" aria-current="page" data-cursor="hover">Επικοινωνία</a></nav>
+  <a class="btn btn--solid" href="/contact/"><span>Μίλα μας</span></a>
+</div>
+
+<main id="main">
+<span id="top"></span>
+<section class="hero hero--sm" id="hero">
+  <canvas class="hero__canvas" id="gl" aria-hidden="true"></canvas>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__in">
+    <p class="kicker reveal" data-reveal><i></i>Επικοινωνία</p>
+    <h1 class="hero__title hero__title--sm">
+      <span class="line"><span class="w" data-split>Πες</span> <span class="w" data-split>μας</span> <span class="w" data-split>τι</span> <span class="w" data-split>θέλεις.</span></span>
+      <span class="line"><span class="w grad" data-split>Απαντάμε</span> <span class="w grad" data-split>αυθημερόν.</span></span>
+    </h1>
+    <p class="hero__sub reveal" data-reveal>Δεν χρειάζεται να ξέρεις τι ακριβώς χρειάζεσαι. Πες μας τι σε ενοχλεί και το ξεδιαλύνουμε μαζί.</p>
+  </div>
+</section>
+
+<section class="sec contact">
+  <div class="contact__grid">
+    <div class="contact__form-wrap tilt">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <form class="form" name="lab-contact" method="POST" data-netlify="true" netlify-honeypot="website" action="/contact/?sent=1">
+        <input type="hidden" name="form-name" value="lab-contact">
+        <p class="hp"><label>Μην το συμπληρώσεις <input name="website" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="field">
+          <label for="name">Όνομα</label>
+          <input id="name" name="name" type="text" required autocomplete="name" placeholder="Πώς σε λένε;">
+        </div>
+        <div class="field">
+          <label for="biz">Επιχείρηση</label>
+          <input id="biz" name="business" type="text" autocomplete="organization" placeholder="Και τι κάνει;">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="phone">Τηλέφωνο</label>
+          <div class="phone-field" data-phone-field data-default="GR" data-frequent="GB,DE,NL,IT,FR">
+            <input type="tel" id="phone" autocomplete="tel-national" inputmode="tel" placeholder="694 000 0000">
+            <input type="hidden" name="phone">
+          </div>
+        </div>
+        <div class="field field--full">
+          <label for="link">Link (site, Instagram, ό,τι έχεις)</label>
+          <input id="link" name="link" type="url" placeholder="https://">
+        </div>
+        <div class="field field--full">
+          <label for="msg">Τι σε απασχολεί;</label>
+          <textarea id="msg" name="message" rows="5" required placeholder="Λίγες γραμμές φτάνουν."></textarea>
+        </div>
+        <label class="form-consent field--full"><input type="checkbox" name="consent" required> Συμφωνώ να επικοινωνήσετε μαζί μου για αυτό το αίτημα.</label>
+        <div class="field--full">
+          <button class="btn btn--solid magnet" type="submit"><span>Στείλε το</span></button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="contact__side">
+      <div class="ccard tilt">
+        <span class="ccard__k">Γρήγορα</span>
+        <a class="ccard__v" href="https://wa.me/306942428836" target="_blank" rel="noopener" data-cursor="hover">WhatsApp →</a>
+        <p>+30 694 242 8836. Συνήθως απαντάμε μέσα σε λίγες ώρες.</p>
+      </div>
+      <div class="ccard tilt">
+        <span class="ccard__k">Email</span>
+        <a class="ccard__v" href="mailto:info@thefixer.gr" data-cursor="hover">info@thefixer.gr</a>
+        <p>Στείλε ό,τι έχεις: link, φωτογραφίες, τιμοκατάλογο.</p>
+      </div>
+      <div class="ccard tilt">
+        <span class="ccard__k">Πού είμαστε</span>
+        <span class="ccard__v">Κως, 85302</span>
+        <p>Δουλεύουμε με πελάτες σε Αθήνα, Κρήτη, Θεσσαλονίκη και Κύπρο.</p>
+      </div>
+      <div class="ccard ccard--note">
+        <p><b>Σημείωση:</b> αυτή είναι πειραματική σελίδα. Η φόρμα στέλνει μέσω Netlify Forms — για την κανονική επικοινωνία δες το <a href="https://www.thefixer.gr/contact" target="_blank" rel="noopener">thefixer.gr</a>.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <a class="foot__brand" href="/"><img src="/assets/img/logo-wordmark-silver.svg" alt="the fixer" width="132" height="34"><em>lab</em></a>
+    <p class="foot__note">Πειραματικό concept — δεν είναι το live site.
+      <a href="https://www.thefixer.gr" target="_blank" rel="noopener noreferrer" data-cursor="hover">thefixer.gr</a></p>
+    <span class="foot__meta">Κως · Ελλάδα · <a href="mailto:info@thefixer.gr" data-cursor="hover">info@thefixer.gr</a></span>
+  </div>
+</footer>
+
+<script src="/assets/js/gl.js" defer></script>
+<script src="/assets/js/app.js" defer></script>
+<script src="/assets/js/phone-country.js" defer></script>
+</body>
+</html>

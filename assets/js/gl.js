@@ -1,4 +1,6 @@
-/* ══ the fixer LAB — raymarched 3D hero (raw WebGL, zero dependencies) ══ */
+/* ══ the fixer LAB — raymarched 3D brand mark (raw WebGL, zero dependencies) ══
+   Το σχήμα ΔΕΝ είναι ζωγραφισμένο με το χέρι: διαβάζουμε το πραγματικό logo SVG,
+   φτιάχνουμε signed distance field στη CPU και το κάνουμε extrude μέσα στον shader. */
 (function () {
   var canvas = document.getElementById('gl');
   if (!canvas) return;
@@ -7,10 +9,10 @@
         || canvas.getContext('experimental-webgl');
   if (!gl) return;
 
-  var VERT = [
-    'attribute vec2 p;',
-    'void main(){ gl_Position = vec4(p, 0.0, 1.0); }'
-  ].join('\n');
+  var SDF_N = 256;      // ανάλυση του distance field
+  var SDF_RANGE = 60;   // pixels που καλύπτει το ±0.5 του byte
+
+  var VERT = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
 
   var FRAG = [
     'precision highp float;',
@@ -18,13 +20,19 @@
     'uniform float uTime;',
     'uniform vec2  uMouse;',
     'uniform float uScroll;',
+    'uniform float uHasGlyph;',
+    'uniform sampler2D uSDF;',
     '',
     'const vec3 COPPER   = vec3(0.620, 0.386, 0.212);',
     'const vec3 COPPER_L = vec3(0.824, 0.596, 0.400);',
+    'const float S  = 0.95;',
+    'const float TH = 0.115;',
+    'const float R  = 0.045;',
+    'const float SDF_RANGE = ' + SDF_RANGE.toFixed(1) + ';',
+    'const float SDF_HALF  = ' + (SDF_N / 2).toFixed(1) + ';',
     '',
     'mat2 rot(float a){ float c=cos(a), s=sin(a); return mat2(c,-s,s,c); }',
     'float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453); }',
-    '',
     'float sdRoundBox(vec3 p, vec3 b, float r){',
     '  vec3 q = abs(p) - b;',
     '  return length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0) - r;',
@@ -34,27 +42,40 @@
     '  return mix(b, a, h) - k*h*(1.0-h);',
     '}',
     '',
-    '// the brand mark: a 3D "x" built from two rounded bars',
+    'float sdGlyph(vec2 q){',
+    '  vec2 c = clamp(q, -1.0, 1.0);',
+    '  float outside = length(q - c);',
+    '  float v = texture2D(uSDF, c*0.5 + 0.5).r;',
+    '  float d = (v - 0.5) * 2.0 * SDF_RANGE / SDF_HALF;',
+    '  return d + outside;',
+    '}',
+    '',
     'float map(vec3 p){',
-    '  p.yz *= rot(-0.30 + uMouse.y*0.32 + uScroll*0.55);',
-    '  p.xz *= rot(uTime*0.22 + uMouse.x*0.55);',
+    '  p.xz *= rot(sin(uTime*0.30)*0.34 + uMouse.x*0.40);',
+    '  p.yz *= rot(sin(uTime*0.22)*0.13 + uMouse.y*0.22 + uScroll*0.40);',
+    '  float d;',
+    '  if (uHasGlyph > 0.5) {',
+    '    float d2 = sdGlyph(p.xy / S) * S;',
+    '    float dz = abs(p.z) - TH;',
+    '    d = min(max(d2, dz), 0.0) + length(max(vec2(d2, dz), 0.0)) - R;',
+    '    d += 0.006 * sin(4.0*p.x + uTime*0.8) * sin(4.0*p.y + uTime*0.5);',
+    '    return d * 0.72;',
+    '  }',
     '  vec3 a = p; a.xy *= rot(0.785398);',
     '  vec3 b = p; b.xy *= rot(-0.785398);',
-    '  float bar1 = sdRoundBox(a, vec3(0.140, 1.00, 0.140), 0.065);',
-    '  float bar2 = sdRoundBox(b, vec3(0.140, 1.00, 0.140), 0.065);',
-    '  float d = smin(bar1, bar2, 0.15);',
+    '  d = smin(sdRoundBox(a, vec3(0.14, 1.0, 0.14), 0.065),',
+    '           sdRoundBox(b, vec3(0.14, 1.0, 0.14), 0.065), 0.15);',
     '  d += 0.022 * sin(3.4*p.x + uTime*0.9) * sin(3.4*p.y + uTime*0.6) * sin(3.4*p.z);',
     '  return d * 0.82;',
     '}',
     '',
     'vec3 normalAt(vec3 p){',
-    '  vec2 e = vec2(0.0016, 0.0);',
+    '  vec2 e = vec2(0.0022, 0.0);',
     '  return normalize(vec3(',
     '    map(p+e.xyy)-map(p-e.xyy),',
     '    map(p+e.yxy)-map(p-e.yxy),',
     '    map(p+e.yyx)-map(p-e.yyx)));',
     '}',
-    '',
     'float ao(vec3 p, vec3 n){',
     '  float o = 0.0, s = 1.0;',
     '  for(int i=0;i<4;i++){',
@@ -67,22 +88,19 @@
     '',
     'void main(){',
     '  vec2 uv = (gl_FragCoord.xy - 0.5*uRes) / uRes.y;',
-    '  // background: deep charcoal with a warm bloom on the right',
     '  vec3 col = vec3(0.043, 0.039, 0.047);',
     '  col += COPPER * 0.070 * pow(max(0.0, 1.0 - length(uv - vec2(0.42,0.10))*0.92), 3.0);',
-    '  float grain = hash(gl_FragCoord.xy + fract(uTime)*13.0);',
-    '  col += (grain - 0.5) * 0.018;',
+    '  col += (hash(gl_FragCoord.xy + fract(uTime)*13.0) - 0.5) * 0.018;',
     '',
-    '  vec3 ro = vec3(0.0, 0.0, 5.30 + uScroll*1.2);',
-    '  vec3 rd = normalize(vec3(uv - vec2(0.33, -0.02), -1.75));',
+    '  vec3 ro = vec3(0.0, 0.0, 8.20 + uScroll*1.6);',
+    '  vec3 rd = normalize(vec3(uv - vec2(0.30, 0.055), -1.75));',
     '',
     '  float t = 0.0; float hit = 0.0;',
-    '  for(int i=0;i<78;i++){',
-    '    vec3 pos = ro + rd*t;',
-    '    float d = map(pos);',
-    '    if(d < 0.0012){ hit = 1.0; break; }',
-    '    if(t > 8.5) break;',
-    '    t += d;',
+    '  for(int i=0;i<92;i++){',
+    '    float d = map(ro + rd*t);',
+    '    if(d < 0.0014){ hit = 1.0; break; }',
+    '    if(t > 13.0) break;',
+    '    t += d * 0.82;',
     '  }',
     '',
     '  if(hit > 0.5){',
@@ -91,14 +109,12 @@
     '    vec3 v = -rd;',
     '    vec3 l1 = normalize(vec3(0.85, 0.95, 0.65));',
     '    vec3 l2 = normalize(vec3(-0.85, -0.25, 0.45));',
-    '',
     '    float dif  = max(dot(n, l1), 0.0);',
     '    float dif2 = max(dot(n, l2), 0.0);',
     '    float fres = pow(1.0 - max(dot(n, v), 0.0), 3.2);',
     '    float spec = pow(max(dot(reflect(-l1, n), v), 0.0), 46.0);',
     '    float occ  = ao(pos, n);',
     '',
-    '    // metal: low diffuse, strong specular + faux environment reflection',
     '    vec3 r = reflect(-v, n);',
     '    float band = smoothstep(-0.25, 0.85, r.y);',
     '    vec3 env = mix(vec3(0.028, 0.024, 0.030), COPPER_L * 1.20, band);',
@@ -110,12 +126,12 @@
     '    m += COPPER_L * dif2 * 0.16 * occ;',
     '    m += vec3(1.0, 0.90, 0.76) * spec * 1.9;',
     '    m += COPPER_L * fres * 0.60 * occ;',
-    '    float fog = exp(-0.055 * t * t);',
+    '    float fog = 1.0 - smoothstep(9.5, 13.0, t);',
     '    col = mix(col, m, fog);',
     '  }',
     '',
-    '  col = col / (col + vec3(0.78));',            // tonemap
-    '  col = pow(col, vec3(0.4545));',              // gamma
+    '  col = col / (col + vec3(0.78));',
+    '  col = pow(col, vec3(0.4545));',
     '  col *= 1.0 - uScroll*0.55;',
     '  gl_FragColor = vec4(col, 1.0);',
     '}'
@@ -144,17 +160,107 @@
   var uRes = gl.getUniformLocation(prog, 'uRes'),
       uTime = gl.getUniformLocation(prog, 'uTime'),
       uMouse = gl.getUniformLocation(prog, 'uMouse'),
-      uScroll = gl.getUniformLocation(prog, 'uScroll');
+      uScroll = gl.getUniformLocation(prog, 'uScroll'),
+      uHasGlyph = gl.getUniformLocation(prog, 'uHasGlyph'),
+      uSDFLoc = gl.getUniformLocation(prog, 'uSDF');
 
-  var quality = (window.innerWidth < 760 || navigator.hardwareConcurrency < 5) ? 0.55 : 0.8;
+  /* ── placeholder texture μέχρι να ετοιμαστεί το SDF ── */
+  var tex = gl.createTexture();
+  gl.activeTexture(gl.TEXTURE0);
+  gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, 1, 1, 0, gl.LUMINANCE, gl.UNSIGNED_BYTE, new Uint8Array([0]));
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.uniform1i(uSDFLoc, 0);
+  gl.uniform1f(uHasGlyph, 0.0);
+
+  /* ── Felzenszwalb exact euclidean distance transform ── */
+  function edt1d(f, d, v, z, n) {
+    var k = 0; v[0] = 0; z[0] = -1e20; z[1] = 1e20;
+    for (var q = 1; q < n; q++) {
+      var s = ((f[q] + q * q) - (f[v[k]] + v[k] * v[k])) / (2 * q - 2 * v[k]);
+      while (s <= z[k]) {
+        k--;
+        s = ((f[q] + q * q) - (f[v[k]] + v[k] * v[k])) / (2 * q - 2 * v[k]);
+      }
+      k++; v[k] = q; z[k] = s; z[k + 1] = 1e20;
+    }
+    k = 0;
+    for (var q2 = 0; q2 < n; q2++) {
+      while (z[k + 1] < q2) k++;
+      d[q2] = (q2 - v[k]) * (q2 - v[k]) + f[v[k]];
+    }
+  }
+  function edt2d(grid, w, h) {
+    var f = new Float64Array(Math.max(w, h)), d = new Float64Array(Math.max(w, h));
+    var v = new Int32Array(Math.max(w, h)), z = new Float64Array(Math.max(w, h) + 1);
+    var x, y;
+    for (x = 0; x < w; x++) {
+      for (y = 0; y < h; y++) f[y] = grid[y * w + x];
+      edt1d(f, d, v, z, h);
+      for (y = 0; y < h; y++) grid[y * w + x] = d[y];
+    }
+    for (y = 0; y < h; y++) {
+      for (x = 0; x < w; x++) f[x] = grid[y * w + x];
+      edt1d(f, d, v, z, w);
+      for (x = 0; x < w; x++) grid[y * w + x] = d[x];
+    }
+    return grid;
+  }
+
+  function buildSDF(img) {
+    var N = SDF_N, INF = 1e20;
+    var c = document.createElement('canvas'); c.width = c.height = N;
+    var ctx = c.getContext('2d');
+    ctx.clearRect(0, 0, N, N);
+    // κεντράρισμα με padding ώστε το glyph να πιάνει ~76% του καμβά
+    var pad = 0.12, box = N * (1 - pad * 2);
+    var s = Math.min(box / img.width, box / img.height);
+    var w = img.width * s, h = img.height * s;
+    ctx.drawImage(img, (N - w) / 2, (N - h) / 2, w, h);
+    var data = ctx.getImageData(0, 0, N, N).data;
+
+    var inside = new Float64Array(N * N), outside = new Float64Array(N * N);
+    for (var i = 0; i < N * N; i++) {
+      var a = data[i * 4 + 3] > 127;
+      outside[i] = a ? 0 : INF;   // απόσταση από το μελάνι
+      inside[i]  = a ? INF : 0;   // απόσταση από το κενό
+    }
+    edt2d(outside, N, N); edt2d(inside, N, N);
+
+    var px = new Uint8Array(N * N);
+    for (var j = 0; j < N * N; j++) {
+      var sd = Math.sqrt(outside[j]) - Math.sqrt(inside[j]);   // >0 έξω, <0 μέσα
+      var vv = 0.5 + sd / (2 * SDF_RANGE);
+      px[j] = Math.max(0, Math.min(255, Math.round(vv * 255)));
+    }
+    // το texture διαβάζεται με y προς τα πάνω — γυρίζουμε τις γραμμές
+    var flipped = new Uint8Array(N * N);
+    for (var r = 0; r < N; r++) flipped.set(px.subarray((N - 1 - r) * N, (N - r) * N), r * N);
+
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.pixelStorei(gl.UNPACK_ALIGNMENT, 1);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, N, N, 0, gl.LUMINANCE, gl.UNSIGNED_BYTE, flipped);
+    gl.uniform1f(uHasGlyph, 1.0);
+  }
+
+  fetch('/assets/img/mark-gold.svg')
+    .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+    .then(function (svg) {
+      var img = new Image();
+      img.onload = function () { try { buildSDF(img); } catch (e) { console.warn('SDF failed', e); } };
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    })
+    .catch(function () { /* μένει το procedural fallback */ });
+
+  var quality = (window.innerWidth < 760 || (navigator.hardwareConcurrency || 8) < 5) ? 0.55 : 0.8;
   function resize() {
     var dpr = Math.min(window.devicePixelRatio || 1, 1.6) * quality;
     var w = Math.max(1, Math.round(canvas.clientWidth * dpr));
     var h = Math.max(1, Math.round(canvas.clientHeight * dpr));
-    if (canvas.width !== w || canvas.height !== h) {
-      canvas.width = w; canvas.height = h;
-      gl.viewport(0, 0, w, h);
-    }
+    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; gl.viewport(0, 0, w, h); }
     gl.uniform2f(uRes, canvas.width, canvas.height);
   }
   window.addEventListener('resize', function () { resize(); if (!running) draw(lastT); }, { passive: true });
@@ -186,10 +292,8 @@
     gl.uniform1f(uScroll, scroll);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
-
-  var raf = null;
   function frame() {
-    raf = requestAnimationFrame(frame);
+    requestAnimationFrame(frame);
     if (!visible || !running) return;
     mx += (tmx - mx) * 0.045; my += (tmy - my) * 0.045;
     scroll = Math.min(1, (window.scrollY || 0) / Math.max(1, window.innerHeight));

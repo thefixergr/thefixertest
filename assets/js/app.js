@@ -305,6 +305,57 @@
     })();
   })();
 
+
+  /* ── burger / drawer ── */
+  (function () {
+    var b = document.getElementById('burger'), dr = document.getElementById('drawer');
+    if (!b || !dr) return;
+    function set(open) {
+      b.setAttribute('aria-expanded', String(open));
+      dr.hidden = !open;
+      document.body.classList.toggle('lock', open);
+    }
+    b.addEventListener('click', function () { set(b.getAttribute('aria-expanded') !== 'true'); });
+    dr.addEventListener('click', function (e) { if (e.target.tagName === 'A') set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    window.addEventListener('resize', function () { if (innerWidth > 900) set(false); });
+  })();
+
+  /* ── φίλτρα portfolio ── */
+  (function () {
+    var wrap = document.getElementById('chips'), grid = document.getElementById('pjs');
+    if (!wrap || !grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.pj'));
+    wrap.addEventListener('click', function (e) {
+      var b = e.target.closest('.chip');
+      if (!b) return;
+      wrap.querySelectorAll('.chip').forEach(function (c) { c.classList.toggle('is-on', c === b); });
+      var f = b.dataset.filter;
+      cards.forEach(function (c, i) {
+        var show = f === 'all' || (' ' + c.dataset.cats + ' ').indexOf(' ' + f + ' ') > -1;
+        c.classList.toggle('is-out', !show);
+        if (show && motionOn) {
+          c.style.animation = 'none';
+          void c.offsetWidth;
+          c.style.animation = 'pjIn .55s var(--ease) both ' + (i % 6) * 0.045 + 's';
+        }
+      });
+    });
+  })();
+
+  /* ── μήνυμα «στάλθηκε» στη φόρμα ── */
+  (function () {
+    if (location.search.indexOf('sent=1') === -1) return;
+    var f = document.querySelector('.form');
+    if (!f) return;
+    var ok = document.createElement('p');
+    ok.className = 'form__ok';
+    ok.setAttribute('role', 'status');
+    ok.textContent = 'Ελήφθη. Θα σου απαντήσουμε στο email που έδωσες.';
+    f.insertBefore(ok, f.firstChild);
+    f.scrollIntoView({ behavior: motionOn ? 'smooth' : 'auto', block: 'center' });
+  })();
+
   /* ── smooth in-page links respecting reduced motion ── */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
