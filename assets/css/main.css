@@ -623,3 +623,13 @@ a.ccard__v:hover{color:var(--copper-lt)}
 .hero__sub b{color:var(--text);font-weight:700}
 .ccard p a{color:var(--text);border-bottom:1px solid var(--line)}
 .ccard p a:hover{color:var(--coral);border-color:var(--coral)}
+
+/* κουμπί «δες το live» κάτω από το καρουζέλ + ↗ στα καρέ */
+.ring__go-wrap{text-align:center;margin-top:18px}
+.ring__go b{font-weight:800;color:var(--coral)}
+.ring__go:hover b{color:inherit}
+.slide figcaption{padding-right:52px}
+.slide__ext{position:absolute;right:14px;bottom:14px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  font-style:normal;font-size:.9rem;color:#0b0a0b;background:var(--coral);opacity:0;transform:translateY(4px);transition:opacity .35s,transform .35s var(--ease)}
+.slide.active .slide__ext{opacity:1;transform:none}
+.slide a{display:block;cursor:pointer}

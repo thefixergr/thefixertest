@@ -242,8 +242,9 @@
       var w = slides[0].offsetWidth;
       radius = Math.round((w / 2) / Math.tan(Math.PI / n) * 1.06);
     }
+    var go = document.getElementById('ringGo'), lastActive = null;
     function place() {
-      var tilt = motionOn ? -6 : 0;
+      var tilt = motionOn ? -6 : 0, best = -2, bestEl = null;
       slides.forEach(function (s, i) {
         var a = i * step;
         s.style.transform = 'translate(-50%,-50%) rotateY(' + a + 'deg) translateZ(' + radius + 'px)';
@@ -252,7 +253,13 @@
         s.style.opacity = String(0.28 + 0.72 * Math.max(0, facing));
         s.style.zIndex = String(Math.round(facing * 100) + 100);
         s.classList.toggle('active', facing > 0.86);
+        if (facing > best) { best = facing; bestEl = s; }
       });
+      if (bestEl && bestEl !== lastActive && go) {
+        lastActive = bestEl;
+        go.href = bestEl.dataset.url;
+        go.querySelector('b').textContent = bestEl.dataset.name;
+      }
       ring.style.transform = 'rotateX(' + tilt + 'deg) rotateY(' + angle + 'deg)';
     }
     function loop() {
