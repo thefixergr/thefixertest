@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ιστοσελίδες. — Το site σου, έτοιμο σε 5 μέρες. 400€ + ΦΠΑ.</title>
+<meta name="description" content="Ιστοσελίδα για μικρή επιχείρηση, φτιαγμένη με AI και ελεγμένη από ανθρώπους. 400€ + ΦΠΑ, έτοιμη σε 5 εργάσιμες, δύο χρόνια hosting. Από το thefixer.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#0b0a0b">
+<meta property="og:title" content="ιστοσελίδες. — Το site σου, έτοιμο σε 5 μέρες.">
+<meta property="og:description" content="400€ + ΦΠΑ. Φτιαγμένο με AI, ελεγμένο από ανθρώπους. Δύο χρόνια hosting. Από το thefixer.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/img/og.png">
+<link rel="preload" href="/assets/fonts/Geologica-800-greek.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Manrope-400-greek.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <i class="loader__half loader__half--t"></i><i class="loader__half loader__half--b"></i>
+  <div class="loader__card">
+    <div class="wordmark wordmark--lg"><span class="wordmark__n">ιστοσελίδες<i>.</i></span><span class="wordmark__by">by <b>the<strong>fixer</strong></b></span></div>
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+    <div class="loader__tc"><i class="rec"></i><b id="loaderNum">00:00:00:00</b></div>
+  </div>
+</div>
+<div class="grade" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="fade" id="fade" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span><span class="cursor__label"></span></div>
+
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="wordmark" href="#top" data-cursor="hover" aria-label="ιστοσελίδες. by thefixer — αρχή"><span class="wordmark__n">ιστοσελίδες<i>.</i></span><span class="wordmark__by">by <b>the<strong>fixer</strong></b></span></a>
+    <nav class="nav__links" aria-label="Κύρια πλοήγηση">
+      <a href="#package" data-cursor="hover">Τι παίρνεις</a>
+      <a href="#process" data-cursor="hover">Πώς γίνεται</a>
+      <a href="#work" data-cursor="hover">Δουλειές</a>
+      <a href="#price" data-cursor="hover">Τιμή</a>
+      <a href="#faq" data-cursor="hover">Ερωτήσεις</a>
+    </nav>
+    <div class="nav__right">
+      <button class="motion-toggle" type="button" aria-pressed="true" title="Κίνηση on/off"><span class="motion-toggle__dot"></span><span class="motion-toggle__txt">Κίνηση</span></button>
+      <a class="btn btn--sm btn--solid" href="#form" data-cursor="hover"><span>Θέλω το δικό μου</span></a>
+    </div>
+  </div>
+  <i class="nav__progress" id="navProgress"></i>
+  <button class="burger" id="burger" type="button" aria-label="Μενού" aria-expanded="false"><span></span><span></span></button>
+</header>
+<div class="drawer" id="drawer" hidden>
+  <nav class="drawer__links" aria-label="Μενού">
+    <a href="#package">Τι παίρνεις</a><a href="#process">Πώς γίνεται</a><a href="#work">Δουλειές</a><a href="#price">Τιμή</a><a href="#faq">Ερωτήσεις</a>
+  </nav>
+  <a class="btn btn--solid" href="#form"><span>Θέλω το δικό μου</span></a>
+  <button class="motion-toggle motion-toggle--drawer" type="button" aria-pressed="true"><span class="motion-toggle__dot"></span><span class="motion-toggle__txt">Κίνηση</span></button>
+</div>
+
+<main id="main"><span id="top"></span>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="hero">
+  <canvas class="hero__canvas" id="gl" aria-hidden="true"></canvas>
+  <div class="hero__veil" aria-hidden="true"></div>
+  <div class="viewfinder" aria-hidden="true">
+    <i class="vf vf--tl"></i><i class="vf vf--tr"></i><i class="vf vf--bl"></i><i class="vf vf--br"></i>
+    <span class="vf__tc"><i class="rec"></i><b data-tc>00:00:00:00</b></span>
+    <span class="vf__meta">istoselides.ai</span>
+  </div>
+  <div class="hero__in">
+    <p class="kicker reveal" data-reveal><i></i>Ιστοσελίδες με AI · από το thefixer</p>
+    <h1 class="hero__title">
+      <span class="line"><span class="w" data-split>Το</span> <span class="w" data-split>site</span> <span class="w" data-split>σου.</span></span>
+      <span class="line"><span class="w" data-split>Έτοιμο</span> <span class="w" data-split>σε</span> <span class="w accent" data-split>5</span> <span class="w accent" data-split>μέρες.</span></span>
+    </h1>
+    <p class="hero__sub reveal" data-reveal>Το φτιάχνουμε με AI και το ελέγχουν άνθρωποι που φτιάχνουν sites από το 2018. <b>400€ + ΦΠΑ</b>, δύο χρόνια hosting, δικό σου από την πρώτη μέρα.</p>
+    <div class="hero__cta reveal" data-reveal>
+      <a class="btn btn--solid magnet" href="#form" data-cursor="hover"><span>Θέλω το δικό μου</span></a>
+      <a class="btn btn--ghost magnet" href="#package" data-cursor="hover"><span>Δες τι παίρνεις</span></a>
+    </div>
+  </div>
+  <div class="floaters" aria-hidden="true">
+    <div class="floater floater--1" data-depth="0.06"><span class="floater__k">Παράδοση</span><b class="floater__v">5 μέρες</b><span class="floater__s">από την παραλαβή υλικού</span></div>
+    <div class="floater floater--2" data-depth="0.11"><span class="floater__k">Τιμή</span><b class="floater__v">400€</b><span class="floater__s">+ ΦΠΑ. Χωρίς «από».</span></div>
+    <div class="floater floater--3" data-depth="0.085"><span class="floater__k">Google PageSpeed</span><b class="floater__v">90+</b><span class="floater__s">στο κινητό, εγγυημένα</span></div>
+  </div>
+</section>
+
+<!-- ══ TICKER ══ -->
+<section class="ticker" aria-hidden="true"><div class="ticker__track">
+  <span>Δεν έχεις site</span><i>✳</i><span>Έχεις ένα Wix που ντρέπεσαι</span><i>✳</i><span>Πληρώνεις συνδρομή κάθε μήνα</span><i>✳</i><span>Θέλεις κάτι πριν τη σεζόν</span><i>✳</i>
+  <span>Δεν έχεις site</span><i>✳</i><span>Έχεις ένα Wix που ντρέπεσαι</span><i>✳</i><span>Πληρώνεις συνδρομή κάθε μήνα</span><i>✳</i><span>Θέλεις κάτι πριν τη σεζόν</span><i>✳</i>
+</div></section>
+
+<!-- ══ STATEMENT ══ -->
+<section class="statement"><p class="statement__txt" id="statementTxt">Ένα site για μικρή επιχείρηση δεν χρειάζεται να κοστίζει 2.000 ευρώ και να παίρνει δύο μήνες. Χρειάζεται να λέει τι κάνεις, πού είσαι και πώς σε βρίσκουν. Και να φορτώνει πριν προλάβει ο άλλος να βαρεθεί.</p></section>
+
+<!-- ══ PACKAGE ══ -->
+<section class="sec" id="package">
+  <header class="sec__head">
+    <p class="kicker reveal" data-reveal><i></i>Τι παίρνεις με 400€</p>
+    <h2 class="sec__title reveal" data-reveal>Όλα όσα χρειάζεται <span class="dim">μια μικρή επιχείρηση.</span></h2>
+  </header>
+  <div class="cards">
+    <article class="card tilt"><div class="card__glare"></div><div class="card__in"><span class="card__no">01</span><h3>Μονοσέλιδο με 6 έως 7 ενότητες</h3><p>Ποιος είσαι, τι κάνεις, φωτογραφίες, κριτικές, χάρτης, επικοινωνία. Ό,τι ψάχνει ο πελάτης, σε μία κύλιση.</p></div></article>
+    <article class="card tilt"><div class="card__glare"></div><div class="card__in"><span class="card__no">02</span><h3>Κείμενα γραμμένα από εμάς</h3><p>Σου στέλνουμε 10 ερωτήσεις. Γράφουμε εμείς, με AI και μάτι. Εγκρίνεις μία φορά και τελείωσε.</p></div></article>
+    <article class="card tilt"><div class="card__glare"></div><div class="card__in"><span class="card__no">03</span><h3>Στα χρώματά σου</h3><p>Παίρνουμε δύο χρώματα από το λογότυπό σου και στήνουμε όλη την παλέτα. Φωτεινό ή σκούρο, εσύ διαλέγεις.</p></div></article>
+    <article class="card tilt"><div class="card__glare"></div><div class="card__in"><span class="card__no">04</span><h3>Κλήση και WhatsApp με ένα δάχτυλο</h3><p>Μόνιμη μπάρα στο κινητό. Ο πελάτης σε παίρνει χωρίς να ψάξει το νούμερο.</p></div></article>
+    <article class="card tilt"><div class="card__glare"></div><div class="card__in"><span class="card__no">05</span><h3>Φόρμα που έρχεται στο email σου</h3><p>Τέσσερα πεδία, με κωδικό χώρας στο τηλέφωνο. Κρατάμε αντίγραφο για να μη χαθεί ποτέ μήνυμα.</p></div></article>
+    <article class="card tilt"><div class="card__glare"></div><div class="card__in"><span class="card__no">06</span><h3>Ταχύτητα 90+ στο Google PageSpeed</h3><p>Το μετράμε πριν το παραδώσουμε, στο κινητό. Αν δεν το πιάνει, το φτιάχνουμε δωρεάν.</p></div></article>
+    <article class="card tilt"><div class="card__glare"></div><div class="card__in"><span class="card__no">07</span><h3>Δύο χρόνια hosting και SSL</h3><p>Δεν πληρώνεις τίποτα άλλο μέχρι το 2028. Μετά, 150€ τον χρόνο με έναν γύρο αλλαγών μέσα.</p></div></article>
+    <article class="card card--dark tilt"><div class="card__glare"></div><div class="card__in"><span class="card__no">+</span><h3>Θες διαφορετική διάταξη?</h3><p>Το βασικό layout είναι μέσα. Κάθε διαφορετικό layout από τον κατάλογό μας, +50€.</p></div></article>
+  </div>
+
+  <div class="not reveal" data-reveal>
+    <h3 class="not__title">Τι <span class="accent">δεν</span> παίρνεις. Για να μην το μάθεις μετά.</h3>
+    <ul class="not__list">
+      <li><b>E-shop και μηχανή κρατήσεων.</b> Θέλουν άλλη δουλειά και άλλη τιμή. Αν τα χρειάζεσαι, λέμε.</li>
+      <li><b>Domain.</b> Το αγοράζεις εσύ, στο όνομά σου, γύρω στα 15€ τον χρόνο. Σου λέμε πού και πώς.</li>
+      <li><b>Φωτογράφιση.</b> Αν έχεις καλές φωτογραφίες, τέλεια. Αν δεν έχεις, βάζουμε stock και σου το λέμε ευθέως: χαλάει το αποτέλεσμα. Η φωτογράφιση προσφέρεται χωριστά.</li>
+      <li><b>AI chatbot.</b> Δεν βάζουμε. Το WhatsApp κάνει τη δουλειά καλύτερα.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ PROCESS ══ -->
+<section class="process" id="process">
+  <div class="process__sticky">
+    <div class="process__head"><p class="kicker"><i></i>Πώς γίνεται</p><h2 class="sec__title">Τέσσερα βήματα. <span class="dim">Καμία έκπληξη.</span></h2></div>
+    <div class="deck" id="deck">
+      <article class="deck__card"><span class="deck__no">01</span><h3>Μιλάμε</h3><p>Συμπληρώνεις τη φόρμα και σε παίρνουμε τηλέφωνο μέσα σε 24 ώρες. Αν το πακέτο δεν σου ταιριάζει, θα σου το πούμε εμείς.</p></article>
+      <article class="deck__card"><span class="deck__no">02</span><h3>Προκαταβολή 50%</h3><p>200€ + ΦΠΑ. Σου στέλνουμε το ερωτηματολόγιο των 10 ερωτήσεων. Μας στέλνεις λογότυπο και φωτογραφίες.</p></article>
+      <article class="deck__card"><span class="deck__no">03</span><h3>Πέντε εργάσιμες</h3><p>Από τη μέρα που έχουμε το υλικό. Βλέπεις το site, λες αλλαγές. Δύο γύροι, μέσα στην τιμή.</p></article>
+      <article class="deck__card"><span class="deck__no">04</span><h3>Online</h3><p>Εξοφλείς, το συνδέουμε στο domain σου, είσαι online. Παίρνεις και τα αρχεία. Είναι δικά σου.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WORK ══ -->
+<section class="sec" id="work">
+  <header class="sec__head">
+    <p class="kicker reveal" data-reveal><i></i>Δουλειές που τρέχουν σήμερα</p>
+    <h2 class="sec__title reveal" data-reveal>Η ίδια ομάδα, <span class="dim">σε μεγαλύτερα έργα.</span></h2>
+    <p class="sec__lead reveal" data-reveal>Αυτά είναι πλήρη sites του thefixer, όχι το πακέτο των 400€. Τα δείχνουμε για να δεις πώς δουλεύουμε. Πάτα και δες τα ζωντανά.</p>
+  </header>
+  <div class="ring-wrap" id="ringWrap">
+    <div class="ring" id="ring" data-cursor="drag">
+      <figure class="slide"><a href="https://www.pittasstudios.com" target="_blank" rel="noopener"><img src="/assets/img/work/pittas-studios.jpg" alt="Pittas Studios" loading="lazy" draggable="false"></a><figcaption><b>Pittas Studios</b><span>Ξενοδοχείο · Καρδάμαινα</span></figcaption></figure>
+      <figure class="slide"><a href="https://elealuxurysuites.com" target="_blank" rel="noopener"><img src="/assets/img/work/elea-luxury-suites.jpg" alt="Elea Luxury Suites" loading="lazy" draggable="false"></a><figcaption><b>Elea Luxury Suites</b><span>Suites · Καρδάμαινα</span></figcaption></figure>
+      <figure class="slide"><a href="https://aegeansunsetvillas.com" target="_blank" rel="noopener"><img src="/assets/img/work/aegean-sunset-villas.jpg" alt="Aegean Sunset Villas" loading="lazy" draggable="false"></a><figcaption><b>Aegean Sunset Villas</b><span>Βίλες · Μαστιχάρι</span></figcaption></figure>
+      <figure class="slide"><a href="https://onarvillaskos.com" target="_blank" rel="noopener"><img src="/assets/img/work/onar-villas.jpg" alt="ONAR Villas" loading="lazy" draggable="false"></a><figcaption><b>ŌNAR Villas</b><span>Private pool villas</span></figcaption></figure>
+      <figure class="slide"><a href="https://supermarketlouis.com" target="_blank" rel="noopener"><img src="/assets/img/work/louis-supermarket.jpg" alt="Louis Supermarkets" loading="lazy" draggable="false"></a><figcaption><b>Louis Supermarkets</b><span>Super market · Μαρίνα Κω</span></figcaption></figure>
+    </div>
+    <div class="ring__ctrl">
+      <button type="button" id="ringPrev" aria-label="Προηγούμενο" data-cursor="hover"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <span class="ring__hint">σύρε ή κύλισε</span>
+      <button type="button" id="ringNext" aria-label="Επόμενο" data-cursor="hover"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICE ══ -->
+<section class="sec price" id="price">
+  <div class="price__panel tilt">
+    <div class="price__glow" aria-hidden="true"></div>
+    <div class="price__l">
+      <p class="kicker"><i></i>Η τιμή</p>
+      <h2 class="price__big"><span class="count-eur">400€</span><small>+ ΦΠΑ</small></h2>
+      <p class="price__tag">Τελεία. Δεν υπάρχει «από». Δεν υπάρχει silver και gold. Ένα site, μία τιμή.</p>
+      <a class="btn btn--solid magnet" href="#form" data-cursor="hover"><span>Θέλω το δικό μου</span></a>
+    </div>
+    <ul class="price__list">
+      <li>Μονοσέλιδο 6 έως 7 ενότητες</li>
+      <li>Κείμενα από εμάς, μία έγκριση</li>
+      <li>Στα χρώματα σου, φωτεινό ή σκούρο</li>
+      <li>Μπάρα κλήσης και WhatsApp στο κινητό</li>
+      <li>Φόρμα με κωδικό χώρας</li>
+      <li>PageSpeed 90+ ή το φτιάχνουμε δωρεάν</li>
+      <li>2 χρόνια hosting και SSL</li>
+      <li>Δύο γύροι αλλαγών</li>
+      <li class="price__extra">Διαφορετικό layout: +50€ · Μετά τα 2 χρόνια: 150€/χρόνο</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ WHY AI ══ -->
+<section class="sec why" id="why">
+  <div class="why__grid">
+    <div>
+      <p class="kicker reveal" data-reveal><i></i>Γιατί με AI, και γιατί το λέμε</p>
+      <h2 class="sec__title reveal" data-reveal>Το AI γράφει το πρώτο χέρι. <span class="dim">Εμείς αποφασίζουμε.</span></h2>
+      <p class="why__txt reveal" data-reveal>Το AI στήνει τη δομή και γράφει το πρώτο κείμενο. Εμείς διορθώνουμε, ελέγχουμε, κρίνουμε. Γι' αυτό κοστίζει 400 και όχι 2.000. Δεν το κρύβουμε, γιατί δεν έχουμε λόγο.</p>
+    </div>
+    <div class="why__pts">
+      <div class="why__pt tilt"><b>Ό,τι διαβάζει η Google, το διαβάζει και το ChatGPT.</b><span>Δομημένα δεδομένα και καθαρή ιεραρχία σε κάθε site. Έτοιμο για τις μηχανές που έρχονται.</span></div>
+      <div class="why__pt tilt"><b>Χωρίς WordPress. Χωρίς plugins να σπάνε.</b><span>Στατικός κώδικας. Δεν χρειάζεται ενημερώσεις, δεν έχει τρύπες, φορτώνει αμέσως.</span></div>
+      <div class="why__pt tilt"><b>Δύο ζευγάρια μάτια πριν βγει.</b><span>Κάθε site το ελέγχουν άνθρωποι. Κείμενο, ταχύτητα, κινητό, νομικά.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="sec faq" id="faq">
+  <header class="sec__head"><p class="kicker reveal" data-reveal><i></i>Ερωτήσεις</p><h2 class="sec__title reveal" data-reveal>Αυτά που ρωτάνε <span class="dim">όλοι.</span></h2></header>
+  <div class="acc" id="acc">
+    <details class="acc__i"><summary>Είναι template?</summary><p>Είναι σύστημα. Η δομή είναι ίδια για όλους, γι' αυτό είναι γρήγορο και φθηνό. Τα χρώματα, τα κείμενα, οι φωτογραφίες και η γραμματοσειρά είναι δικά σου. Αν θες διαφορετική διάταξη, +50€.</p></details>
+    <details class="acc__i"><summary>Ποιος έχει το site?</summary><p>Εσύ. Το domain είναι στο όνομά σου και τα αρχεία δικά σου. Αν κάποια στιγμή φύγεις, τα παίρνεις μαζί σου.</p></details>
+    <details class="acc__i"><summary>Τι γίνεται μετά τα 2 χρόνια?</summary><p>150€ τον χρόνο: hosting, SSL και ένας γύρος αλλαγών. Ή παίρνεις τα αρχεία και το φιλοξενείς όπου θέλεις.</p></details>
+    <details class="acc__i"><summary>Μπορώ να αλλάζω κείμενα μόνος μου?</summary><p>Όχι. Δεν έχει διαχειριστικό, γι' αυτό είναι γρήγορο και ασφαλές. Τις αλλαγές τις κάνουμε εμείς. Μετά την παράδοση, οι μικρές αλλαγές χρεώνονται.</p></details>
+    <details class="acc__i"><summary>Δεν έχω λογότυπο.</summary><p>Δουλεύουμε με το όνομά σου σε καθαρή τυπογραφία και δείχνει μια χαρά. Λογότυπο φτιάχνουμε χωριστά, αν το θες.</p></details>
+    <details class="acc__i"><summary>Κάνετε φωτογράφιση, social, διαφημίσεις?</summary><p>Ναι, είναι η κύρια δουλειά του thefixer. Η τιμή εξαρτάται από τον χώρο και τους στόχους, οπότε μιλάμε στο τηλέφωνο, όχι με τιμοκατάλογο.</p></details>
+    <details class="acc__i"><summary>Θέλω e-shop ή κρατήσεις.</summary><p>Γίνεται, αλλά όχι με αυτό το πακέτο. Ξεχωριστή προσφορά, ξεχωριστή συζήτηση.</p></details>
+  </div>
+</section>
+
+<!-- ══ FORM ══ -->
+<section class="sec contact" id="form">
+  <div class="contact__grid">
+    <div class="contact__form-wrap tilt">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <p class="kicker"><i></i>Ξεκίνα</p>
+      <h2 class="contact__title">Πες μας τι κάνεις.<br><span class="accent">Σε παίρνουμε σε 24 ώρες.</span></h2>
+      <form class="form" name="istoselides-lead" method="POST" data-netlify="true" netlify-honeypot="website" action="/efcharisto/">
+        <input type="hidden" name="form-name" value="istoselides-lead">
+        <p class="hp"><label>Μην το συμπληρώσεις <input name="website" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field"><label for="name">Όνομα</label><input id="name" name="name" type="text" required autocomplete="name" placeholder="Πώς σε λένε"></div>
+        <div class="field"><label for="biz">Επιχείρηση</label><input id="biz" name="business" type="text" required autocomplete="organization" placeholder="Και τι κάνει"></div>
+        <div class="field"><label for="phone">Τηλέφωνο</label><div class="phone-field" data-phone-field data-default="GR" data-frequent="CY,GB,DE,IT"><input type="tel" id="phone" autocomplete="tel-national" inputmode="tel" required placeholder="694 000 0000"><input type="hidden" name="phone"></div></div>
+        <div class="field"><label for="link">Link, αν έχεις <em>(site, Instagram, Google)</em></label><input id="link" name="link" type="text" placeholder="https://"></div>
+        <label class="form-consent field--full"><input type="checkbox" name="consent" required> Συμφωνώ να επικοινωνήσετε μαζί μου για αυτό το αίτημα. <a href="/aporrito/">Απόρρητο</a></label>
+        <div class="field--full"><button class="btn btn--solid magnet" type="submit"><span>Στείλε το</span></button></div>
+      </form>
+    </div>
+    <aside class="contact__side">
+      <div class="ccard tilt"><span class="ccard__k">Πιο γρήγορα</span><a class="ccard__v" href="https://wa.me/306942428836?text=%CE%93%CE%B5%CE%B9%CE%B1%20%CF%83%CE%B1%CF%82%2C%20%CE%B5%CE%BD%CE%B4%CE%B9%CE%B1%CF%86%CE%AD%CF%81%CE%BF%CE%BC%CE%B1%CE%B9%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20site%20%CF%84%CF%89%CE%BD%20400%E2%82%AC" target="_blank" rel="noopener" data-cursor="hover">WhatsApp →</a><p>+30 694 242 8836</p></div>
+      <div class="ccard tilt"><span class="ccard__k">Email</span><a class="ccard__v" href="mailto:info@thefixer.gr" data-cursor="hover">info@thefixer.gr</a><p>Στείλε ό,τι έχεις. Λογότυπο, φωτογραφίες, το παλιό site.</p></div>
+      <div class="ccard tilt"><span class="ccard__k">Πού είμαστε</span><span class="ccard__v">Κως</span><p>Δουλεύουμε με πελάτες σε όλη την Ελλάδα και την Κύπρο. Όλα γίνονται από απόσταση.</p></div>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <a class="wordmark wordmark--foot" href="#top"><span class="wordmark__n">ιστοσελίδες<i>.</i></span><span class="wordmark__by">by <b>the<strong>fixer</strong></b></span></a>
+    <p class="foot__note">Υπηρεσία του <a href="https://www.thefixer.gr" target="_blank" rel="noopener noreferrer" data-cursor="hover">thefixer</a>, 360° digital agency, Κως. <a href="/aporrito/" data-cursor="hover">Απόρρητο</a></p>
+    <span class="foot__meta">ΠΑΝΑΓΙΩΤΗΣ ΙΕΡΟΜΝΗΜΩΝ ΜΟΝ. ΙΚΕ · ΑΦΜ 802720258 · Κως 85302</span>
+  </div>
+</footer>
+
+<script src="/assets/js/gl.js" defer></script>
+<script src="/assets/js/app.js" defer></script>
+<script src="/assets/js/phone-country.js" defer></script>
+</body>
+</html>
