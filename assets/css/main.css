@@ -650,3 +650,9 @@ a.ccard__v:hover{color:var(--copper-lt)}
 .chk input:checked+span::before{background-color:#0b0a0b;border-color:#0b0a0b;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff6a4d' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E")}
 .chk input:focus-visible+span{outline:2px solid var(--peach);outline-offset:2px}
+
+/* ── μίνι 3D σήμα (section «Γιατί με AI») ── */
+.mini3d{width:clamp(150px,14vw,210px);aspect-ratio:1;display:block;margin-top:26px;opacity:0;transition:opacity .9s ease .1s}
+.mini3d.ready{opacity:1}
+html.no-motion .mini3d{opacity:1}
+@media(max-width:860px){.mini3d{margin:22px auto 0}}

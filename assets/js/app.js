@@ -170,6 +170,23 @@
     el.addEventListener('pointerleave', function () { el.style.transform = ''; });
   });
 
+  /* ── στο κινητό δεν υπάρχει ποντίκι: τα tilt panels γέρνουν με βάση το scroll,
+     ώστε η σελίδα να κινείται παντού, όχι μόνο στο desktop ── */
+  if (window.matchMedia('(hover:none)').matches) {
+    var scrollTilts = Array.prototype.slice.call(document.querySelectorAll('.tilt'));
+    (function tickTilt() {
+      requestAnimationFrame(tickTilt);
+      if (!motionOn) return;
+      var vh = window.innerHeight;
+      scrollTilts.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.bottom < -40 || r.top > vh + 40) return;
+        var p = ((r.top + r.height / 2) / vh - 0.5) * 2;
+        el.style.transform = 'perspective(1000px) rotateX(' + (p * 3.5) + 'deg)';
+      });
+    })();
+  }
+
   /* ── 3D tilt (cards, stats, cta panel) ── */
   document.querySelectorAll('.tilt').forEach(function (el) {
     var r = null, raf = null, tx = 0, ty = 0;
