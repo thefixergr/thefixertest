@@ -12,10 +12,10 @@
 <meta property="og:description" content="400€ + ΦΠΑ. Φτιαγμένο με AI, ελεγμένο από ανθρώπους. Δύο χρόνια hosting. Από το thefixer.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/assets/img/og.png">
-<link rel="preload" href="/assets/fonts/Geologica-800-greek.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/Manrope-400-greek.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fonts/fonts.css">
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="/assets/fonts/Geologica-800-greek.woff2?v=202609041633" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Manrope-400-greek.woff2?v=202609041633" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css?v=202609041633">
+<link rel="stylesheet" href="/assets/css/main.css?v=202609041633">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js">
 </head>
@@ -151,11 +151,11 @@
   </header>
   <div class="ring-wrap" id="ringWrap">
     <div class="ring" id="ring" data-cursor="drag">
-      <figure class="slide"><a href="https://www.pittasstudios.com" target="_blank" rel="noopener"><img src="/assets/img/work/pittas-studios.jpg" alt="Pittas Studios" loading="lazy" draggable="false"></a><figcaption><b>Pittas Studios</b><span>Ξενοδοχείο · Καρδάμαινα</span></figcaption></figure>
-      <figure class="slide"><a href="https://elealuxurysuites.com" target="_blank" rel="noopener"><img src="/assets/img/work/elea-luxury-suites.jpg" alt="Elea Luxury Suites" loading="lazy" draggable="false"></a><figcaption><b>Elea Luxury Suites</b><span>Suites · Καρδάμαινα</span></figcaption></figure>
-      <figure class="slide"><a href="https://aegeansunsetvillas.com" target="_blank" rel="noopener"><img src="/assets/img/work/aegean-sunset-villas.jpg" alt="Aegean Sunset Villas" loading="lazy" draggable="false"></a><figcaption><b>Aegean Sunset Villas</b><span>Βίλες · Μαστιχάρι</span></figcaption></figure>
-      <figure class="slide"><a href="https://onarvillaskos.com" target="_blank" rel="noopener"><img src="/assets/img/work/onar-villas.jpg" alt="ONAR Villas" loading="lazy" draggable="false"></a><figcaption><b>ŌNAR Villas</b><span>Private pool villas</span></figcaption></figure>
-      <figure class="slide"><a href="https://supermarketlouis.com" target="_blank" rel="noopener"><img src="/assets/img/work/louis-supermarket.jpg" alt="Louis Supermarkets" loading="lazy" draggable="false"></a><figcaption><b>Louis Supermarkets</b><span>Super market · Μαρίνα Κω</span></figcaption></figure>
+      <figure class="slide"><a href="https://www.pittasstudios.com" target="_blank" rel="noopener"><img src="/assets/img/work/pittas-studios.jpg?v=202609041633" alt="Pittas Studios" loading="lazy" draggable="false"></a><figcaption><b>Pittas Studios</b><span>Ξενοδοχείο · Καρδάμαινα</span></figcaption></figure>
+      <figure class="slide"><a href="https://elealuxurysuites.com" target="_blank" rel="noopener"><img src="/assets/img/work/elea-luxury-suites.jpg?v=202609041633" alt="Elea Luxury Suites" loading="lazy" draggable="false"></a><figcaption><b>Elea Luxury Suites</b><span>Suites · Καρδάμαινα</span></figcaption></figure>
+      <figure class="slide"><a href="https://aegeansunsetvillas.com" target="_blank" rel="noopener"><img src="/assets/img/work/aegean-sunset-villas.jpg?v=202609041633" alt="Aegean Sunset Villas" loading="lazy" draggable="false"></a><figcaption><b>Aegean Sunset Villas</b><span>Βίλες · Μαστιχάρι</span></figcaption></figure>
+      <figure class="slide"><a href="https://onarvillaskos.com" target="_blank" rel="noopener"><img src="/assets/img/work/onar-villas.jpg?v=202609041633" alt="ONAR Villas" loading="lazy" draggable="false"></a><figcaption><b>ŌNAR Villas</b><span>Private pool villas</span></figcaption></figure>
+      <figure class="slide"><a href="https://supermarketlouis.com" target="_blank" rel="noopener"><img src="/assets/img/work/louis-supermarket.jpg?v=202609041633" alt="Louis Supermarkets" loading="lazy" draggable="false"></a><figcaption><b>Louis Supermarkets</b><span>Super market · Μαρίνα Κω</span></figcaption></figure>
     </div>
     <div class="ring__ctrl">
       <button type="button" id="ringPrev" aria-label="Προηγούμενο" data-cursor="hover"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -226,9 +226,12 @@
       <div class="contact__glow" aria-hidden="true"></div>
       <p class="kicker"><i></i>Ξεκίνα</p>
       <h2 class="contact__title">Πες μας τι κάνεις.<br><span class="accent">Σε παίρνουμε σε 24 ώρες.</span></h2>
-      <form class="form" name="istoselides-lead" method="POST" data-netlify="true" netlify-honeypot="website" action="/efcharisto/">
-        <input type="hidden" name="form-name" value="istoselides-lead">
-        <p class="hp"><label>Μην το συμπληρώσεις <input name="website" tabindex="-1" autocomplete="off"></label></p>
+      <form class="form" method="POST" action="https://formsubmit.co/info@thefixer.gr">
+        <input type="hidden" name="_subject" value="ιστοσελίδες. — νέο αίτημα">
+        <input type="hidden" name="_next" value="https://thefixertest.netlify.app/efcharisto/">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="field"><label for="name">Όνομα</label><input id="name" name="name" type="text" required autocomplete="name" placeholder="Πώς σε λένε"></div>
         <div class="field"><label for="biz">Επιχείρηση</label><input id="biz" name="business" type="text" required autocomplete="organization" placeholder="Και τι κάνει"></div>
         <div class="field"><label for="phone">Τηλέφωνο</label><div class="phone-field" data-phone-field data-default="GR" data-frequent="CY,GB,DE,IT"><input type="tel" id="phone" autocomplete="tel-national" inputmode="tel" required placeholder="694 000 0000"><input type="hidden" name="phone"></div></div>
@@ -254,12 +257,12 @@
   </div>
 </footer>
 
-<script src="/assets/js/app.js" defer></script>
+<script src="/assets/js/app.js?v=202609041633" defer></script>
 <script>
 // Το 3D φορτώνει αφού ζωγραφιστεί το κείμενο — το PageSpeed μετράει το κείμενο, όχι το σήμα.
-(function(){ var go=function(){ var s=document.createElement('script'); s.type='module'; s.src='/assets/js/hero3d.js'; document.body.appendChild(s); };
+(function(){ var go=function(){ var s=document.createElement('script'); s.type='module'; s.src='/assets/js/hero3d.js?v=202609041633'; document.body.appendChild(s); };
   if ('requestIdleCallback' in window) requestIdleCallback(go, {timeout: 1200}); else setTimeout(go, 300); })();
 </script>
-<script src="/assets/js/phone-country.js" defer></script>
+<script src="/assets/js/phone-country.js?v=202609041633" defer></script>
 </body>
 </html>
