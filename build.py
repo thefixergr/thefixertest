@@ -378,3 +378,11 @@ def build():
 
 if __name__ == "__main__":
     build()
+
+
+# ---- thefixer source signature (added 2026-09-04) ----
+# Adds the ASCII "the fixer" logo comment + gold console banner to every built page. Idempotent, safe to re-run.
+if __name__ == "__main__":
+    import os as _os, sys as _sys, subprocess as _sp
+    _here = _os.path.dirname(_os.path.abspath(__file__))
+    _sp.run([_sys.executable, _os.path.join(_here, "tools", "sign.py"), "--place", "doctype", _here], check=False)
