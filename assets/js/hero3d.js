@@ -45,7 +45,7 @@ function layout() {
 new ResizeObserver(layout).observe(hero);
 
 const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
-loader.load('/assets/3d/mark.glb?v=202609041636', (gltf) => {
+loader.load('/assets/3d/mark.glb?v=202609041651', (gltf) => {
   const model = gltf.scene;
   const box = new THREE.Box3().setFromObject(model), size = new THREE.Vector3(), c = new THREE.Vector3();
   box.getSize(size); box.getCenter(c); model.position.sub(c);
