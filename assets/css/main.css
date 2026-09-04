@@ -621,3 +621,5 @@ a.ccard__v:hover{color:var(--copper-lt)}
 .form-consent a{color:var(--coral)}
 .contact__form-wrap .kicker{position:relative;z-index:2}
 .hero__sub b{color:var(--text);font-weight:700}
+.ccard p a{color:var(--text);border-bottom:1px solid var(--line)}
+.ccard p a:hover{color:var(--coral);border-color:var(--coral)}
