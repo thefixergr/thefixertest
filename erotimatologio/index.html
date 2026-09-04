@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ερωτηματολόγιο — ιστοσελίδες.</title><meta name="description" content="Οι 20 ερωτήσεις για να ξεκινήσει το site σου."><meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="theme-color" content="#0b0a0b">
+<link rel="stylesheet" href="/assets/fonts/fonts.css?v=202609041831"><link rel="stylesheet" href="/assets/css/main.css?v=202609041831">
+<style>
+.q{max-width:860px;margin:0 auto;padding:clamp(110px,15vh,160px) var(--pad) clamp(70px,10vw,120px)}
+.q h1{font-size:clamp(2rem,5vw,3.2rem);margin:14px 0 14px}.q .lead{color:var(--text-mut);max-width:60ch;font-size:1.05rem}
+.prog{display:flex;align-items:center;gap:14px;margin:34px 0 26px}
+.prog__bar{flex:1;height:2px;background:var(--line);overflow:hidden;border-radius:2px}.prog__bar i{display:block;height:100%;width:25%;background:var(--coral);transition:width .5s var(--ease)}
+.prog__txt{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim);font-weight:700;white-space:nowrap}
+.step{display:none;border:1px solid var(--line);border-radius:24px;padding:clamp(24px,3.4vw,44px);background:linear-gradient(160deg,var(--surface-2),#131217 72%)}
+.step.on{display:block}
+.step h2{font-size:1.4rem;margin:0 0 22px;display:flex;gap:12px;align-items:baseline}.step h2 small{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);font-weight:800}
+.qq{display:grid;gap:8px;margin-bottom:26px}
+.qq label.t{font-family:Geologica,sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-.01em;color:var(--text);display:flex;gap:10px}
+.qq label.t b{color:var(--coral);font-weight:800;min-width:1.6em}
+.qq .h{font-size:.86rem;color:var(--text-mut);margin-top:-4px}
+.qq input[type=text],.qq input[type=url],.qq input[type=email],.qq textarea,.qq select{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:rgba(11,10,12,.55);color:var(--text);font:inherit;font-size:.95rem}
+.qq textarea{min-height:96px;resize:vertical}.qq input:focus,.qq textarea:focus,.qq select:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,106,77,.14)}
+.qq input::placeholder,.qq textarea::placeholder{color:#5f5d65}
+.qq select{appearance:none;background-image:linear-gradient(45deg,transparent 49%,var(--text-dim) 50%),linear-gradient(-45deg,transparent 49%,var(--text-dim) 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+.qq select option{background:#1a1a1a;color:#f6f1ee}
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.types label{position:relative;cursor:pointer}.types input{position:absolute;opacity:0;width:1px;height:1px}
+.types span{display:grid;gap:4px;padding:14px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(11,10,12,.55);font-weight:700;font-size:.92rem}
+.types span small{font-weight:500;color:var(--text-mut);font-size:.76rem}
+.types input:checked+span{background:var(--coral);border-color:var(--coral);color:#0b0a0b}.types input:checked+span small{color:#0b0a0b}
+.types input:focus-visible+span{outline:2px solid var(--peach);outline-offset:2px}
+.only{display:none}.only.on{display:grid}
+.nav2{display:flex;justify-content:space-between;gap:12px;margin-top:8px;flex-wrap:wrap}
+.file{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px dashed var(--line);border-radius:12px;color:var(--text-mut);font-size:.9rem}
+.file input{color:var(--text);font-size:.88rem}
+.err{display:none;color:#ffb0a0;font-size:.86rem;margin-top:-10px;margin-bottom:16px}.err.on{display:block}
+.saved{font-size:.72rem;color:var(--text-dim);text-align:right;margin-top:10px;letter-spacing:.06em}
+.form-consent a{color:var(--coral)}
+</style></head>
+<body class="sub-page">
+<div class="grade" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div><div class="vignette" aria-hidden="true"></div>
+<header class="nav scrolled" id="nav"><div class="nav__in">
+  <a class="wordmark" href="/"><span class="wordmark__n">ιστοσελίδες<i>.</i></span><span class="wordmark__by">by <b>the<strong>fixer</strong></b></span></a>
+  <div class="nav__right" style="display:flex"><a class="btn btn--sm btn--ghost" href="/"><span>← Αρχική</span></a></div>
+</div></header>
+
+<main id="main"><section class="q">
+  <p class="kicker"><i></i>Ερωτηματολόγιο · 20 ερωτήσεις · ~15 λεπτά</p>
+  <h1>Πες μας για την επιχείρησή σου.<br><span class="accent">Από αυτό φτιάχνεται το site.</span></h1>
+  <p class="lead">Γράψε όπως μιλάς, δεν χρειάζεται να είναι ωραία γραμμένο, το γράψιμο είναι δική μας δουλειά. Ό,τι αφήσεις κενό θα το ρωτήσουμε στο τηλέφωνο. Οι απαντήσεις σου αποθηκεύονται στη συσκευή σου όσο γράφεις.</p>
+
+  <div class="prog"><div class="prog__bar"><i id="progBar"></i></div><span class="prog__txt" id="progTxt">Βήμα 1 από 4</span></div>
+
+  <form id="qf" method="POST" action="https://formsubmit.co/info@thefixer.gr" enctype="multipart/form-data" novalidate>
+    <input type="hidden" name="_subject" id="subj" value="ιστοσελίδες. — ερωτηματολόγιο">
+    <input type="hidden" name="_next" value="https://istoselides.ai/efcharisto-erotimatologio/">
+    <input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <!-- ══ ΒΗΜΑ 1 ══ -->
+    <section class="step on" data-step="1">
+      <h2><small>Βήμα 1</small>Η επιχείρηση</h2>
+      <div class="qq"><label class="t" for="q1"><b>1.</b>Πώς λέγεται η επιχείρηση, όπως θες να φαίνεται στο site?</label><input type="text" id="q1" name="01 Όνομα επιχείρησης" required placeholder="π.χ. Oneiro Villas"></div>
+      <div class="qq"><span class="t"><b>2.</b>Τι είδους επιχείρηση είναι?</span><span class="h">Οι ερωτήσεις 7 έως 10 αλλάζουν ανάλογα με αυτό.</span>
+        <div class="types">
+          <label><input type="radio" name="02 Τύπος επιχείρησης" value="Κατάλυμα" required><span>Κατάλυμα<small>δωμάτια, βίλες, studios</small></span></label>
+          <label><input type="radio" name="02 Τύπος επιχείρησης" value="Εστίαση"><span>Εστίαση<small>εστιατόριο, καφέ, bar</small></span></label>
+          <label><input type="radio" name="02 Τύπος επιχείρησης" value="Επαγγελματίας"><span>Επαγγελματίας<small>γιατρός, δικηγόρος, τεχνικός</small></span></label>
+          <label><input type="radio" name="02 Τύπος επιχείρησης" value="Κατάστημα"><span>Κατάστημα<small>λιανική, προϊόντα</small></span></label>
+          <label><input type="radio" name="02 Τύπος επιχείρησης" value="Υπηρεσίες / άλλο"><span>Υπηρεσίες / άλλο<small>ό,τι δεν χωράει πάνω</small></span></label>
+        </div></div>
+      <div class="qq"><label class="t" for="q3"><b>3.</b>Πού βρίσκεσαι?</label><span class="h">Διεύθυνση και, αν έχεις, το link από το Google Maps.</span><input type="text" id="q3" name="03 Διεύθυνση / Google Maps" required placeholder="Καρδάμαινα, Κως · https://maps.app.goo.gl/…"></div>
+      <div class="qq"><label class="t" for="q4"><b>4.</b>Από πότε υπάρχει και ποιος είναι πίσω από αυτήν?</label><span class="h">Δύο-τρεις γραμμές. Οικογενειακή? Νέα? Πώς ξεκίνησε?</span><textarea id="q4" name="04 Ιστορία" placeholder="π.χ. Το ξεκίνησε ο πατέρας μου το 1998, το πήρα εγώ το 2020…"></textarea></div>
+      <div class="qq"><label class="t" for="q5"><b>5.</b>Ποιος είναι ο πελάτης σου?</label><span class="h">Ντόπιοι, τουρίστες, οικογένειες, ζευγάρια, επιχειρήσεις…</span><input type="text" id="q5" name="05 Ποιος είναι ο πελάτης" placeholder="π.χ. ζευγάρια και οικογένειες από Αγγλία και Γερμανία"></div>
+      <div class="qq"><label class="t" for="q6"><b>6.</b>Το ΕΝΑ πράγμα που σε κάνει ξεχωριστό.</label><span class="h">Αυτό που λένε οι πελάτες σου όταν σε προτείνουν σε άλλους.</span><input type="text" id="q6" name="06 Τι σε κάνει ξεχωριστό" required placeholder="π.χ. το ηλιοβασίλεμα από τη βεράντα"></div>
+      <p class="err" id="err1">Λείπουν το όνομα, ο τύπος, η διεύθυνση ή το «ξεχωριστό». Είναι τα μόνα υποχρεωτικά εδώ.</p>
+      <div class="nav2"><span></span><button type="button" class="btn btn--solid" data-next><span>Επόμενο →</span></button></div>
+    </section>
+
+    <!-- ══ ΒΗΜΑ 2 — αλλάζει ανά τύπο ══ -->
+    <section class="step" data-step="2">
+      <h2><small>Βήμα 2</small>Τι προσφέρεις</h2>
+
+      <div class="only" data-type="Κατάλυμα">
+        <div class="qq"><label class="t" for="a7"><b>7.</b>Πόσα δωμάτια ή βίλες, τι τύποι, πόσα άτομα το καθένα?</label><textarea id="a7" name="07 Δωμάτια / βίλες" placeholder="π.χ. 3 βίλες, 2 υπνοδωμάτια, 4-5 άτομα η καθεμία"></textarea></div>
+        <div class="qq"><label class="t" for="a8"><b>8.</b>Παροχές που έχει ο χώρος.</label><span class="h">Πισίνα (ιδιωτική ή κοινή), πρωινό, parking, Wi-Fi, A/C, κουζίνα, jacuzzi, BBQ, θέα…</span><textarea id="a8" name="08 Παροχές" placeholder="Γράψε ό,τι ισχύει"></textarea></div>
+        <div class="qq"><label class="t" for="a9"><b>9.</b>Αποστάσεις.</label><span class="h">Από παραλία, κέντρο, αεροδρόμιο, λιμάνι. Σε λεπτά ή μέτρα.</span><input type="text" id="a9" name="09 Αποστάσεις" placeholder="π.χ. παραλία 800μ, Καρδάμαινα 5 λεπτά, αεροδρόμιο 15 λεπτά"></div>
+        <div class="qq"><label class="t" for="a10"><b>10.</b>Πώς γίνονται οι κρατήσεις και πώς κινούνται οι τιμές?</label><span class="h">Booking, Airbnb, τηλέφωνο, δικό σου σύστημα? Τιμές ανά σεζόν, αν θες να φαίνονται.</span><textarea id="a10" name="10 Κρατήσεις και τιμές" placeholder="π.χ. Booking + WhatsApp. 120-220€/βραδιά ανάλογα με σεζόν."></textarea></div>
+      </div>
+
+      <div class="only" data-type="Εστίαση">
+        <div class="qq"><label class="t" for="b7"><b>7.</b>Τι σερβίρεις? Κουζίνα, ειδικότητα, τα 3 πιάτα ή ποτά που σε ξεχωρίζουν.</label><textarea id="b7" name="07 Κουζίνα και signature" placeholder="π.χ. ψάρι ημέρας, γεμιστά της γιαγιάς, cocktails με ηλιοβασίλεμα"></textarea></div>
+        <div class="qq"><label class="t" for="b8"><b>8.</b>Μενού.</label><span class="h">Έχεις PDF ή λίστα? Θες να φαίνονται τιμές? Θα το ζητήσουμε χωριστά.</span><input type="text" id="b8" name="08 Μενού" placeholder="π.χ. ναι, PDF στα ελληνικά και αγγλικά, με τιμές"></div>
+        <div class="qq"><label class="t" for="b9"><b>9.</b>Ο χώρος.</label><span class="h">Θέσεις, θέα, παιδικός χώρος, κατοικίδια, parking, πρόσβαση ΑμεΑ.</span><textarea id="b9" name="09 Ο χώρος" placeholder="π.χ. 60 θέσεις, βεράντα με θέα θάλασσα, δεκτά κατοικίδια"></textarea></div>
+        <div class="qq"><label class="t" for="b10"><b>10.</b>Κρατήσεις, delivery, εκδηλώσεις?</label><span class="h">Κράτηση τραπεζιού από τηλέφωνο/WhatsApp? Παράδοση? Γάμοι, γενέθλια, group?</span><textarea id="b10" name="10 Κρατήσεις / delivery / events" placeholder="π.χ. κρατήσεις μόνο τηλεφωνικά, χωρίς delivery, κάνουμε δεξιώσεις έως 80 άτομα"></textarea></div>
+      </div>
+
+      <div class="only" data-type="Επαγγελματίας">
+        <div class="qq"><label class="t" for="c7"><b>7.</b>Ειδικότητα και υπηρεσίες.</label><span class="h">Λίστα με τις 5-8 βασικές υπηρεσίες που προσφέρεις.</span><textarea id="c7" name="07 Ειδικότητα και υπηρεσίες" placeholder="π.χ. Γενική ιατρική: εξέταση, συνταγογράφηση, πιστοποιητικά, κατ' οίκον επισκέψεις"></textarea></div>
+        <div class="qq"><label class="t" for="c8"><b>8.</b>Σπουδές, πιστοποιήσεις, χρόνια εμπειρίας.</label><textarea id="c8" name="08 Σπουδές / εμπειρία" placeholder="π.χ. Ιατρική Αθηνών 1990, 35 χρόνια, μέλος Ιατρικού Συλλόγου Κω"></textarea></div>
+        <div class="qq"><label class="t" for="c9"><b>9.</b>Πώς κλείνει κανείς ραντεβού και τι πρέπει να ξέρει πριν έρθει?</label><span class="h">Τηλέφωνο, online, ασφάλειες/ΕΟΠΥΥ, χωρίς ραντεβού?</span><textarea id="c9" name="09 Ραντεβού / ασφάλειες" placeholder="π.χ. με τηλέφωνο, δεχόμαστε ΕΟΠΥΥ, ιδιωτικές ασφάλειες"></textarea></div>
+        <div class="qq"><label class="t" for="c10"><b>10.</b>Περιοχές που εξυπηρετείς.</label><span class="h">Μόνο στο ιατρείο/γραφείο, κατ' οίκον, online?</span><input type="text" id="c10" name="10 Περιοχές εξυπηρέτησης" placeholder="π.χ. Ζηπάρι και όλη η Κως, κατ' οίκον επισκέψεις"></div>
+      </div>
+
+      <div class="only" data-type="Κατάστημα">
+        <div class="qq"><label class="t" for="d7"><b>7.</b>Τι πουλάς? Κατηγορίες προϊόντων και brands, αν έχει σημασία.</label><textarea id="d7" name="07 Προϊόντα" placeholder="π.χ. τρόφιμα, ποτά, φρέσκο κρέας, ψωμί καθημερινά"></textarea></div>
+        <div class="qq"><label class="t" for="d8"><b>8.</b>Γιατί να έρθει σε σένα και όχι στο μεγάλο ή στο online?</label><textarea id="d8" name="08 Γιατί εσύ" placeholder="π.χ. τοπικά προϊόντα, ανοιχτά 7 μέρες, σε βοηθάμε να τα κουβαλήσεις"></textarea></div>
+        <div class="qq"><label class="t" for="d9"><b>9.</b>Παράδοση, παραλαβή, τηλεφωνικές παραγγελίες?</label><input type="text" id="d9" name="09 Παράδοση / παραγγελίες" placeholder="π.χ. παράδοση στη μαρίνα και σε σκάφη, παραγγελία με WhatsApp"></div>
+        <div class="qq"><label class="t" for="d10"><b>10.</b>Προσφορές, εποχικότητα, κάτι που θες να τονίσουμε?</label><input type="text" id="d10" name="10 Προσφορές / εποχικότητα" placeholder="π.χ. ανοιχτά Απρίλιο-Οκτώβριο, προσφορές σε σκάφη"></div>
+      </div>
+
+      <div class="only" data-type="Υπηρεσίες / άλλο">
+        <div class="qq"><label class="t" for="e7"><b>7.</b>Ποιες ακριβώς υπηρεσίες προσφέρεις?</label><textarea id="e7" name="07 Υπηρεσίες" placeholder="Λίστα, μία ανά γραμμή"></textarea></div>
+        <div class="qq"><label class="t" for="e8"><b>8.</b>Πώς δουλεύει η διαδικασία για τον πελάτη, από την πρώτη επαφή μέχρι το τέλος?</label><textarea id="e8" name="08 Διαδικασία" placeholder="π.χ. τηλέφωνο → επίσκεψη → προσφορά → δουλειά σε 2 εβδομάδες"></textarea></div>
+        <div class="qq"><label class="t" for="e9"><b>9.</b>Περιοχή που καλύπτεις.</label><input type="text" id="e9" name="09 Περιοχή κάλυψης" placeholder="π.χ. όλη η Κως και Νίσυρος"></div>
+        <div class="qq"><label class="t" for="e10"><b>10.</b>Ενδεικτικές τιμές ή «κατόπιν επικοινωνίας»?</label><input type="text" id="e10" name="10 Τιμές" placeholder="π.χ. από… / ανά ώρα / κατόπιν επικοινωνίας"></div>
+      </div>
+
+      <div class="nav2"><button type="button" class="btn btn--ghost" data-prev><span>← Πίσω</span></button><button type="button" class="btn btn--solid" data-next><span>Επόμενο →</span></button></div>
+    </section>
+
+    <!-- ══ ΒΗΜΑ 3 ══ -->
+    <section class="step" data-step="3">
+      <h2><small>Βήμα 3</small>Στοιχεία και υλικό</h2>
+      <div class="qq"><label class="t" for="q11"><b>11.</b>Τι θες να κάνει ο επισκέπτης πρώτα-πρώτα?</label>
+        <select id="q11" name="11 Κύρια ενέργεια"><option value="">Διάλεξε…</option><option>Να με πάρει τηλέφωνο</option><option>Να μου γράψει στο WhatsApp</option><option>Να κάνει κράτηση</option><option>Να βρει πώς θα έρθει (οδηγίες)</option><option>Να παραγγείλει</option><option>Να ζητήσει προσφορά</option></select></div>
+      <div class="qq"><label class="t" for="q12"><b>12.</b>Στοιχεία επικοινωνίας που θα φαίνονται στο site.</label><span class="h">Τηλέφωνο, WhatsApp (αν είναι άλλο), email.</span><textarea id="q12" name="12 Επικοινωνία" required placeholder="+30 …  ·  WhatsApp +30 …  ·  email@…"></textarea></div>
+      <div class="qq"><label class="t" for="q13"><b>13.</b>Ώρες λειτουργίας ή σεζόν.</label><input type="text" id="q13" name="13 Ώρες / σεζόν" placeholder="π.χ. Δευ-Σαβ 9-21, Κυριακή κλειστά · ή: Μάιος-Οκτώβριος"></div>
+      <div class="qq"><label class="t" for="q14"><b>14.</b>Links που έχεις ήδη.</label><span class="h">Instagram, Facebook, Google (κριτικές), Booking, TripAdvisor, efood, παλιό site…</span><textarea id="q14" name="14 Links" placeholder="Ένα ανά γραμμή"></textarea></div>
+      <div class="qq"><label class="t" for="q15"><b>15.</b>Domain.</label><span class="h">Έχεις ήδη (ποιο)? Θες να σου προτείνουμε? Το domain το αγοράζεις εσύ στο όνομά σου, ~15€/χρόνο, σου λέμε πώς.</span><input type="text" id="q15" name="15 Domain" placeholder="π.χ. έχω το example.gr στο Papaki · ή: δεν έχω, προτείνετε"></div>
+      <div class="qq"><span class="t"><b>16.</b>Γλώσσα του site.</span><span class="h">Το πακέτο περιλαμβάνει μία γλώσσα. Δεύτερη γλώσσα προσθέτεται χωριστά.</span>
+        <div class="types"><label><input type="radio" name="16 Γλώσσα" value="Ελληνικά"><span>Ελληνικά</span></label><label><input type="radio" name="16 Γλώσσα" value="Αγγλικά"><span>Αγγλικά</span></label><label><input type="radio" name="16 Γλώσσα" value="Ελληνικά + Αγγλικά (θέλω προσφορά)"><span>Και τα δύο<small>θέλω προσφορά</small></span></label></div></div>
+      <div class="qq"><label class="t" for="q17"><b>17.</b>Λογότυπο και χρώματα.</label><span class="h">Ανέβασε το λογότυπο (SVG, PNG ή PDF, έως 5MB). Αν δεν έχεις, γράψε «δεν έχω». Χρώματα: δύο που σε εκφράζουν, ή «διαλέξτε εσείς».</span>
+        <div class="file"><input type="file" name="attachment" accept=".svg,.png,.pdf,.jpg,.jpeg,.ai,.eps"></div>
+        <input type="text" id="q17" name="17 Χρώματα" placeholder="π.χ. μπλε της θάλασσας και λευκό · ή: διαλέξτε εσείς" style="margin-top:8px"></div>
+      <div class="qq"><label class="t" for="q18"><b>18.</b>Φωτογραφίες.</label><span class="h">8 έως 12 καλές φωτογραφίες. Στείλε link από Google Drive, Dropbox ή WeTransfer. Ειλικρινά: με κακές φωτογραφίες το site βγαίνει μέτριο. Αν δεν έχεις, γράψε «δεν έχω» και μιλάμε για φωτογράφιση ή stock.</span><input type="text" id="q18" name="18 Φωτογραφίες (link)" placeholder="https://drive.google.com/… · ή: δεν έχω"></div>
+      <p class="err" id="err3">Λείπουν τα στοιχεία επικοινωνίας (ερ. 12).</p>
+      <div class="nav2"><button type="button" class="btn btn--ghost" data-prev><span>← Πίσω</span></button><button type="button" class="btn btn--solid" data-next><span>Επόμενο →</span></button></div>
+    </section>
+
+    <!-- ══ ΒΗΜΑ 4 ══ -->
+    <section class="step" data-step="4">
+      <h2><small>Βήμα 4</small>Τα τελευταία</h2>
+      <div class="qq"><label class="t" for="q19"><b>19.</b>Δύο sites που σου αρέσουν, και τι ΔΕΝ θες με τίποτα.</label><span class="h">Οποιαδήποτε sites, όχι απαραίτητα του κλάδου σου. Και π.χ. «όχι μπλε», «όχι κινούμενα».</span><textarea id="q19" name="19 Αρέσουν / δεν θέλω" placeholder="Μου αρέσουν: … · Δεν θέλω: …"></textarea></div>
+      <div class="qq"><label class="t" for="q20"><b>20.</b>Κριτικές που θες να φαίνονται, deadline, και ό,τι άλλο πρέπει να ξέρουμε.</label><span class="h">Αν έχεις 2-3 κριτικές από Google/Booking που σε εκφράζουν, κόλλησέ τες εδώ.</span><textarea id="q20" name="20 Κριτικές / deadline / σημειώσεις" placeholder="…"></textarea></div>
+      <label class="form-consent"><input type="checkbox" name="Συγκατάθεση" value="ναι" required> Συμφωνώ να χρησιμοποιηθούν αυτά τα στοιχεία για την κατασκευή του site μου. <a href="/aporrito/">Απόρρητο</a></label>
+      <p class="err" id="err4">Χρειάζεται το τικ της συγκατάθεσης.</p>
+      <div class="nav2" style="margin-top:22px"><button type="button" class="btn btn--ghost" data-prev><span>← Πίσω</span></button><button type="submit" class="btn btn--solid" id="submitBtn"><span>Στείλε το ερωτηματολόγιο</span></button></div>
+    </section>
+    <p class="saved" id="saved"></p>
+  </form>
+</section></main>
+
+<footer class="foot"><div class="foot__in">
+  <a class="wordmark wordmark--foot" href="/"><span class="wordmark__n">ιστοσελίδες<i>.</i></span><span class="wordmark__by">by <b>the<strong>fixer</strong></b></span></a>
+  <p class="foot__note">Υπηρεσία του <a href="https://www.thefixer.gr" target="_blank" rel="noopener noreferrer">thefixer</a>, Κως. <a href="/aporrito/">Απόρρητο</a></p>
+  <span class="foot__meta">ΠΑΝΑΓΙΩΤΗΣ ΙΕΡΟΜΝΗΜΩΝ ΜΟΝ. ΙΚΕ · ΑΦΜ 802720258 · Κως 85302</span>
+</div></footer>
+
+<script src="/assets/js/app.js?v=202609041831" defer></script>
+<script>
+(function(){
+  var form=document.getElementById('qf'), steps=[].slice.call(document.querySelectorAll('.step')), cur=1, KEY='ist_q_v1';
+  var bar=document.getElementById('progBar'), txt=document.getElementById('progTxt'), saved=document.getElementById('saved');
+
+  function show(n){ cur=n; steps.forEach(function(s){ s.classList.toggle('on', +s.dataset.step===n); });
+    bar.style.width=(n*25)+'%'; txt.textContent='Βήμα '+n+' από 4'; window.scrollTo({top:0,behavior:'smooth'}); }
+
+  // ερωτήσεις 7-10 ανά τύπο — τα κρυφά πεδία απενεργοποιούνται ώστε να μη στείλουν κενά
+  function applyType(){
+    var t=(form.querySelector('input[name="02 Τύπος επιχείρησης"]:checked')||{}).value;
+    document.querySelectorAll('.only').forEach(function(b){ var on=b.dataset.type===t; b.classList.toggle('on',on);
+      b.querySelectorAll('input,textarea,select').forEach(function(i){ i.disabled=!on; }); });
+  }
+  form.addEventListener('change', function(e){ if(e.target.name==='02 Τύπος επιχείρησης') applyType(); });
+
+  // έλεγχος υποχρεωτικών ανά βήμα
+  function valid(n){ var s=steps[n-1], ok=true;
+    s.querySelectorAll('[required]').forEach(function(i){ if(i.disabled) return;
+      if(i.type==='radio'){ if(!form.querySelector('input[name="'+i.name+'"]:checked')) ok=false; }
+      else if(i.type==='checkbox'){ if(!i.checked) ok=false; } else if(!i.value.trim()) ok=false; });
+    var err=document.getElementById('err'+n); if(err) err.classList.toggle('on',!ok); return ok; }
+  form.addEventListener('click', function(e){
+    if(e.target.closest('[data-next]')){ if(valid(cur)) show(cur+1); }
+    if(e.target.closest('[data-prev]')) show(cur-1);
+  });
+  form.addEventListener('submit', function(e){ if(!valid(4)){ e.preventDefault(); return; }
+    var name=(document.getElementById('q1').value||'').trim(); document.getElementById('subj').value='ιστοσελίδες. — ερωτηματολόγιο: '+name;
+    try{ localStorage.removeItem(KEY); }catch(_){}
+    document.getElementById('submitBtn').disabled=true; });
+
+  // αυτόματη αποθήκευση στη συσκευή
+  function save(){ var o={}; form.querySelectorAll('input,textarea,select').forEach(function(i){ if(!i.name||i.type==='file'||i.type==='hidden'||i.name.charAt(0)==='_') return;
+      if(i.type==='radio'||i.type==='checkbox'){ if(i.checked) o[i.name]=i.value; } else o[i.name]=i.value; });
+    try{ localStorage.setItem(KEY,JSON.stringify(o)); saved.textContent='Αποθηκεύτηκε στη συσκευή σου · '+new Date().toLocaleTimeString('el-GR',{hour:'2-digit',minute:'2-digit'}); }catch(_){} }
+  form.addEventListener('input', save); form.addEventListener('change', save);
+  try{ var o=JSON.parse(localStorage.getItem(KEY)||'{}'); Object.keys(o).forEach(function(k){
+      var els=form.querySelectorAll('[name="'+k.replace(/"/g,'\\"')+'"]'); els.forEach(function(i){ if(i.type==='radio'||i.type==='checkbox'){ i.checked=(i.value===o[k]); } else i.value=o[k]; }); });
+    if(Object.keys(o).length) saved.textContent='Βρήκαμε τις προηγούμενες απαντήσεις σου και τις επαναφέραμε.'; }catch(_){}
+  applyType();
+})();
+</script>
+</body></html>

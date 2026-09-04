@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /efcharisto/
+Disallow: /efcharisto-erotimatologio/
+Disallow: /erotimatologio/
 
 Sitemap: https://istoselides.ai/sitemap.xml

@@ -120,13 +120,13 @@
   /* ── nav: shrink, hide on scroll down, progress bar ── */
   (function () {
     var nav = document.getElementById('nav'), prog = document.getElementById('navProgress'), last = 0;
+    if (!nav) return;
     function onScroll() {
       var y = window.scrollY || 0;
       nav.classList.toggle('scrolled', y > 40);
       nav.classList.toggle('hide', y > 420 && y > last && !nav.contains(document.activeElement));
       last = y;
-      var h = document.documentElement.scrollHeight - window.innerHeight;
-      prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+      if (prog) { var h = document.documentElement.scrollHeight - window.innerHeight; prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%'; }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
