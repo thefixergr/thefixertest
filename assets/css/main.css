@@ -633,3 +633,20 @@ a.ccard__v:hover{color:var(--copper-lt)}
   font-style:normal;font-size:.9rem;color:#0b0a0b;background:var(--coral);opacity:0;transform:translateY(4px);transition:opacity .35s,transform .35s var(--ease)}
 .slide.active .slide__ext{opacity:1;transform:none}
 .slide a{display:block;cursor:pointer}
+
+/* κουτάκια υπηρεσιών στη φόρμα */
+.chips{border:0;padding:0;margin:0;display:grid;gap:10px}
+.chips legend{font-size:.74rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--text-dim);padding:0;margin-bottom:2px}
+.chips legend em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:500}
+.chips__row{display:flex;flex-wrap:wrap;gap:8px}
+.chk{position:relative;cursor:pointer}
+.chk input{position:absolute;opacity:0;width:1px;height:1px}
+.chk span{display:inline-flex;align-items:center;gap:8px;padding:10px 14px 10px 12px;border:1px solid var(--line);border-radius:100px;
+  font-size:.86rem;font-weight:600;color:var(--text-mut);background:rgba(11,10,12,.55);transition:border-color .2s,color .2s,background .2s}
+.chk span::before{content:'';width:14px;height:14px;border-radius:50%;border:1.5px solid var(--text-dim);flex:none;
+  background:center/8px 8px no-repeat;transition:background-color .2s,border-color .2s}
+.chk:hover span{border-color:var(--coral);color:var(--text)}
+.chk input:checked+span{background:var(--coral);border-color:var(--coral);color:#0b0a0b}
+.chk input:checked+span::before{background-color:#0b0a0b;border-color:#0b0a0b;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff6a4d' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E")}
+.chk input:focus-visible+span{outline:2px solid var(--peach);outline-offset:2px}
