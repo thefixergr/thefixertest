@@ -11,7 +11,7 @@
 
   var q = new URLSearchParams(location.search);
   var MAT = { clay: 0, gloss: 1, stone: 2 }[q.get('mat') || 'clay'] || 0;
-  var COLS = { coral: [1.0, 0.42, 0.30], sand: [0.86, 0.66, 0.50], ivory: [0.93, 0.89, 0.84] };
+  var COLS = { coral: [1.0, 0.36, 0.22], sand: [0.86, 0.66, 0.50], ivory: [0.93, 0.89, 0.84] };
   var COL = COLS[q.get('col') || 'coral'] || COLS.coral;
 
   var SDF_N = 256, SDF_RANGE = 60;
@@ -35,7 +35,7 @@
     '  return (v - 0.5) * 2.0 * SDF_RANGE / SDF_HALF + length(t - c);',
     '}',
     'vec3 xf(vec3 p){',                   // κοινή περιστροφή
-    '  p.xz *= rot(sin(uTime*0.23)*0.42 + uMouse.x*0.45);',
+    '  p.xz *= rot(sin(uTime*0.19)*0.36 + uMouse.x*0.40);',
     '  p.yz *= rot(sin(uTime*0.17)*0.16 + uMouse.y*0.25 + uScroll*0.45);',
     '  return p;',
     '}',
@@ -74,9 +74,9 @@
     '    float fres = pow(1.0 - max(dot(n, v), 0.0), 2.6);',
     '    float spec = pow(max(dot(reflect(-l1, n), v), 0.0), mix(18.0, 140.0, step(0.5, uMat) * (1.0 - step(1.5, uMat))));',
     '    vec3 base = uCol;',
-    '    vec3 shade = base * (0.22 + 0.78 * wrap) * occ;',
+    '    vec3 shade = base * (0.16 + 0.84 * pow(wrap, 1.25)) * occ;',
     '    shade += base * dif2 * 0.14;',
-    '    shade += mix(base, vec3(1.0), 0.55) * fres * 0.30 * occ;',        // ζεστό rim
+    '    shade += mix(base, vec3(1.0), 0.45) * fres * 0.26 * occ;',        // ζεστό rim
     '    // clay: πολύ ήπιο spec · gloss: σκληρό highlight · stone: σχεδόν καθόλου + λίγο grain στην επιφάνεια',
     '    float specAmt = uMat < 0.5 ? 0.10 : (uMat < 1.5 ? 0.85 : 0.04);',
     '    shade += vec3(1.0, 0.95, 0.9) * spec * specAmt;',
@@ -88,6 +88,7 @@
     '  float streak = exp(-abs(uv.y - off.y) * 80.0) * exp(-abs(uv.x - off.x) * 1.6);',
     '  col += vec3(0.35, 0.55, 1.0) * streak * 0.08;',
     '  col = col / (col + vec3(0.78));',
+    '  float lum = dot(col, vec3(0.299,0.587,0.114)); col = mix(vec3(lum), col, 1.28);',
     '  col = pow(col, vec3(0.4545));',
     '  col *= 1.0 - uScroll*0.55;',
     '  float r2 = dot(uv, uv);',
@@ -151,7 +152,7 @@
     img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(body);
   }).catch(function(){});
 
-  var quality=(innerWidth<760||(navigator.hardwareConcurrency||8)<5)?0.55:0.8;
+  var quality=(innerWidth<760||(navigator.hardwareConcurrency||8)<5)?0.6:1.0;
   function resize(){ var dpr=Math.min(devicePixelRatio||1,1.6)*quality, w=Math.max(1,Math.round(canvas.clientWidth*dpr)), h=Math.max(1,Math.round(canvas.clientHeight*dpr));
     if(canvas.width!==w||canvas.height!==h){ canvas.width=w; canvas.height=h; gl.viewport(0,0,w,h); } gl.uniform2f(U.uRes,canvas.width,canvas.height); }
   var mx=0,my=0,tmx=0,tmy=0,scroll=0,visible=true,running=true,start=performance.now(),lastT=2.0;
