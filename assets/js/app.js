@@ -25,29 +25,75 @@
   window.dispatchEvent(new CustomEvent('tf:motion', { detail: motionOn }));
   toggles.forEach(function (t) { t.addEventListener('click', function () { setMotion(!motionOn); }); });
 
-  /* ── preloader ── */
+  /* ── timecode σε μορφή HH:MM:SS:FF στα 24fps ── */
+  function tc(sec) {
+    var f = Math.floor(sec * 24), p = function (n) { return (n < 10 ? '0' : '') + n; };
+    return p(Math.floor(f / 86400) % 24) + ':' + p(Math.floor(f / 1440) % 60) + ':' +
+           p(Math.floor(f / 24) % 60) + ':' + p(f % 24);
+  }
+
+  /* ── title card: μετράει, μετά ανοίγει σαν κουρτίνα ── */
   (function () {
-    var el = document.getElementById('loader'), bar = document.getElementById('loaderBar'), num = document.getElementById('loaderNum');
+    var el = document.getElementById('loader'), bar = document.getElementById('loaderBar'),
+        num = document.getElementById('loaderNum');
     if (!el) return;
+    var opened = false;
+    function open_() {
+      if (opened) return;
+      opened = true;
+      el.classList.add('done');
+      document.body.classList.remove('lock');
+      heroIn();
+      setTimeout(function () { el.classList.add('gone'); }, 1300);
+    }
     var seen = false;
     try { seen = sessionStorage.getItem('tf_lab_seen') === '1'; } catch (e) {}
-    if (seen || !motionOn) { el.classList.add('done'); document.body.classList.remove('lock'); heroIn(); return; }
+    if (seen || !motionOn) { el.classList.add('done', 'gone'); document.body.classList.remove('lock'); heroIn(); return; }
+
     document.body.classList.add('lock');
-    var v = 0;
-    var iv = setInterval(function () {
-      v += Math.random() * 13 + 4;
-      if (v >= 100) { v = 100; clearInterval(iv); finish(); }
-      bar.style.width = v + '%';
-      num.textContent = Math.round(v);
-    }, 90);
-    function finish() {
-      setTimeout(function () {
-        el.classList.add('done');
-        document.body.classList.remove('lock');
-        try { sessionStorage.setItem('tf_lab_seen', '1'); } catch (e) {}
-        heroIn();
-      }, 380);
-    }
+    var t0 = performance.now(), DUR = 1450;
+    /* Το requestAnimationFrame παγώνει σε κρυφή καρτέλα — δίχτυ ασφαλείας
+       ώστε η κουρτίνα να ανοίγει πάντα, ακόμη κι αν χαθούν τα frames. */
+    setTimeout(open_, DUR + 1400);
+    (function step(t) {
+      var p = Math.min(1, (t - t0) / DUR);
+      bar.style.width = (p * 100) + '%';
+      num.textContent = tc((t - t0) / 1000);
+      if (p < 1) return requestAnimationFrame(step);
+      try { sessionStorage.setItem('tf_lab_seen', '1'); } catch (e) {}
+      setTimeout(open_, 260);
+    })(t0);
+  })();
+
+  /* ── το timecode του viewfinder τρέχει όσο βλέπεις τη σελίδα ── */
+  (function () {
+    var els = document.querySelectorAll('[data-tc]');
+    if (!els.length) return;
+    var t0 = performance.now();
+    (function tick() {
+      setTimeout(tick, 42);
+      if (!motionOn || document.hidden) return;
+      var v = tc((performance.now() - t0) / 1000);
+      for (var i = 0; i < els.length; i++) els[i].textContent = v;
+    })();
+  })();
+
+  /* ── fade to black ανάμεσα στις σελίδες ── */
+  (function () {
+    if (!document.getElementById('fade')) return;
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a');
+      if (!a || !motionOn) return;
+      if (a.target === '_blank' || a.hasAttribute('download') || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      var href = a.getAttribute('href') || '';
+      if (!href || href[0] === '#' || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      var url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || url.pathname === location.pathname) return;
+      e.preventDefault();
+      document.body.classList.add('leaving');
+      setTimeout(function () { location.href = url.href; }, 420);
+    });
+    window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
   })();
 
   /* ── hero headline: per-word 3D reveal ── */

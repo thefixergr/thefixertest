@@ -20,12 +20,19 @@
 <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
 
 <div class="loader" id="loader" aria-hidden="true">
-  <div class="loader__inner">
+  <i class="loader__half loader__half--t"></i>
+  <i class="loader__half loader__half--b"></i>
+  <div class="loader__card">
     <img class="loader__logo" src="/assets/img/logo-wordmark-gold.svg" alt="" width="200" height="51">
     <div class="loader__bar"><i id="loaderBar"></i></div>
-    <div class="loader__num"><span id="loaderNum">0</span><em>%</em></div>
+    <div class="loader__tc"><i class="rec"></i><b id="loaderNum">00:00:00:00</b></div>
   </div>
 </div>
+
+<div class="grade" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="fade" id="fade" aria-hidden="true"></div>
 
 <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span><span class="cursor__label"></span></div>
 
